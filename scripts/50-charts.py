@@ -34,9 +34,9 @@ def samples(d):
     return [json.loads(line) for line in open(os.path.join(d, "samples.jsonl")) if line.strip()]
 
 
-def by_mib(config, lo, hi):
+def by_mib(config, lo, hi, batch="runs"):
     b = {}
-    for d in runs_of("runs", config):
+    for d in runs_of(batch, config):
         for o in ops(d):
             k = int(o["cur"] / MIB)
             if lo <= k <= hi:
@@ -51,7 +51,7 @@ def by_mib(config, lo, hi):
 
 
 def main():
-    lo, hi = 226, 244  # the memory.high runs end at about 242 MiB; past that only the formula has values
+    lo, hi = 226, 256
     x = list(range(lo, hi + 1))
     base = st.median(o["op"] / 1e6 for d in runs_of("runs", "anon-over-none") for o in ops(d))
     f64 = [round(base + predict.penalty_ms(m * MIB + MIB // 2), 3) for m in x]
@@ -63,16 +63,19 @@ def main():
         "series": [
             {"name": "no limit", "data": by_mib("anon-over-none", lo, hi), "color": "#94a3b8"},
             {"name": "memory.max only", "data": by_mib("anon-over-max", lo, hi), "color": "#0080ff"},
-            {"name": "memory.high only", "data": by_mib("anon-over-high", lo, hi), "color": "#f59e0b"},
+            {"name": "memory.high only, sampler on the same CPU", "data": by_mib("anon-over-high", lo, hi), "color": "#f59e0b"},
+            {"name": "memory.high only, own CPU, sampler at 1 s", "data": by_mib("diag-over-high-cpu2-1s", lo, hi, "diag"), "color": "#a855f7"},
             {"name": "kernel formula, 1 sleep per 64 pages", "data": f64, "dash": "6 5", "color": "#10b981"},
             {"name": "kernel formula, 1 sleep per page", "data": f1, "dash": "2 4", "color": "#ef4444"},
         ],
         "refs": [{"value": 1, "label": "1 ms"}],
         "caption": "x axis: memory.current in MiB when the op started (memory.high = 230.4 MiB, memory.max = 256 MiB). "
-                   "Median per 1 MiB over 3 repetitions of anon-over, warm code, Ubuntu 6.8.0-147, no swap. "
+                   "Median per 1 MiB over 3 repetitions, warm code, Ubuntu 6.8.0-147, no swap. 'Sampler on the same CPU' "
+                   "is the main matrix (anon-over-high: the workload inherited the driver's CPU 0, sampled every 100 ms); "
+                   "'own CPU' is diag-over-high-cpu2-1s (workload on CPU 2, sampled every 1 s). "
                    "memory.max only stays flat up to 256 MiB, then the OOM kill. The formula lines add the "
                    "no-limit median to the kernel's sleep: once per 64-page op, or once per 4 KiB page. "
-                   "Source: results/runs/anon-over-*/ops.jsonl, scripts/50-charts.py.",
+                   "Source: results/runs/anon-over-*/ops.jsonl, results/diag/diag-over-high-cpu2-1s-*/ops.jsonl, scripts/50-charts.py.",
     }
 
     def growth(config, step=10, until=150):
@@ -111,7 +114,7 @@ def main():
         ss = [s for s in samples(longs[0]) if "current" in s and s.get("nprocs", 0) > 0]
         end = ss[-1]["t"] / 1e9
         pts, xs = [], []
-        for m in range(0, int(end // 60) + 1):
+        for m in range(1, int(end // 60) + 1):  # minute 0 is the first second of growth
             near = [s for s in ss if abs(s["t"] / 1e9 - 60 * m) <= 0.15]
             if near:
                 xs.append(f"{m}m")

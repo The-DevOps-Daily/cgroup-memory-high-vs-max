@@ -46,6 +46,14 @@ def penalty_ms(usage_bytes, high_bytes=HIGH, nr_pages=BATCH):
     return 0 if p <= HZ // 100 else p
 
 
+def timer_step_ms(ms):
+    """Granularity of the timer wheel level a timeout of ms lands in (HZ=1000, kernel/time/timer.c)."""
+    for limit, step in ((64, 1), (512, 8), (4096, 64), (32768, 512)):
+        if ms < limit:
+            return step
+    return 4096
+
+
 def pct(xs, q):
     xs = sorted(xs)
     return xs[min(len(xs) - 1, int(q * len(xs)))] if xs else None
@@ -72,6 +80,7 @@ def main():
             continue
         ops, _ = ops_of(os.path.join(ROOT, "results", batch, run))
         ratios, mixed, nosleep = [], 0, 0
+        stepped = {"under_64ms": [], "64ms_or_more": []}
         for o in ops:
             if o.get("dh", 0) == 0:
                 continue
@@ -85,6 +94,9 @@ def main():
                 nosleep += 1
                 continue
             ratios.append((o["op"] / 1e6 - base) / pred)
+            # the timer fires at the next step of its wheel level: on average half a step late
+            k = "under_64ms" if pen < 64 else "64ms_or_more"
+            stepped[k].append((o["op"] / 1e6 - base) / (sleeps * (pen + timer_step_ms(pen) / 2)))
             group = "matrix" if batch == "runs" else r["config"]
             for lo, hi in BUCKETS:
                 if lo <= pen < hi and "--populate" not in (r["extra"] or []):
@@ -94,6 +106,7 @@ def main():
             "ops_predicted_no_sleep": nosleep,
             "ratio_p10": pct(ratios, 0.1), "ratio_p50": pct(ratios, 0.5), "ratio_p90": pct(ratios, 0.9),
             "within_30pct": (sum(1 for x in ratios if 0.7 <= x <= 1.3) / len(ratios)) if ratios else None,
+            "ratio_p50_with_half_timer_step": {k: pct(v, 0.5) for k, v in stepped.items()},
         }
 
     for g, buckets in by_pen.items():
@@ -183,6 +196,13 @@ def main():
         if v["ops_checked"]:
             L.append(f"| {run} | {v['ops_checked']} | {v['ratio_p10']:.3f} | {v['ratio_p50']:.3f} | "
                      f"{v['ratio_p90']:.3f} | {100 * v['within_30pct']:.0f}% | {v['ops_with_partial_reclaim_rounds']} |")
+    L += ["", "Same ratio with half a timer-wheel step added to each sleep (1 ms step under 64 ms, 8 ms from 64 to 511 ms):", "",
+          "| run | under 64 ms | 64 ms or more |", "| --- | --- | --- |"]
+    for run, v in out["per_sleep"].items():
+        h = v.get("ratio_p50_with_half_timer_step") or {}
+        if v["ops_checked"]:
+            f = lambda x: f"{x:.3f}" if x is not None else "-"
+            L.append(f"| {run} | {f(h.get('under_64ms'))} | {f(h.get('64ms_or_more'))} |")
     L += ["", "## 1b. Sleeps per 256 KiB op (64 pages), by the formula's sleep length", "",
           "One-process warm runs that touch memory with page faults (not `--populate`), ops whose rise in `high` "
           "is a multiple of 17. 64 or more means one sleep per page. `matrix`: all such runs in results/runs, where "

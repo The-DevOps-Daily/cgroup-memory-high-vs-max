@@ -26,6 +26,7 @@ get mm_internal.h       "$UK/mm/internal.h?id=$UKID"
 get resume_user_mode.h  "$UK/include/linux/resume_user_mode.h?id=$UKID"
 get cgroup-v2.rst       "$UK/Documentation/admin-guide/cgroup-v2.rst?id=$UKID"
 get filemap.c           "$UK/mm/filemap.c?id=$UKID"
+get timer.c             "$UK/kernel/time/timer.c?id=$UKID"
 get systemd.resource-control.xml "$GH/systemd/systemd/$SYSTEMD/man/systemd.resource-control.xml"
 get runc-fs2-memory.go  "$GH/opencontainers/runc/$RUNC/vendor/github.com/opencontainers/cgroups/fs2/memory.go"
 get runc-systemd-v2.go  "$GH/opencontainers/runc/$RUNC/vendor/github.com/opencontainers/cgroups/systemd/v2.go"
@@ -66,6 +67,8 @@ hit mm_internal.h 'define MAX_RECLAIM_RETRIES'
 hit resume_user_mode.h 'mem_cgroup_handle_over_high'
 hdr "mm/filemap.c (same tag): a page wait counts as a memory stall only for workingset folios"
 span filemap.c '^static inline int folio_wait_bit_common' 'thrashing = true;'
+hdr "kernel/time/timer.c (same tag): timer wheel granularity at HZ=1000"
+span timer.c '^ \* HZ 1000 steps' '^ \*  5 '
 hdr "Documentation/admin-guide/cgroup-v2.rst (same tag)"
 span cgroup-v2.rst '^  memory.high$' '^  memory.max$'
 span cgroup-v2.rst '^  memory.max$' '^  memory.reclaim$'

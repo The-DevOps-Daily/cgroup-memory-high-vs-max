@@ -88,7 +88,7 @@ CONFIGS = [
     cfg("file-over-high", "file", 320, "high"),
     cfg("file-over-both", "file", 320, "both"),
     cfg("anon-over-both-long", "anon", 320, "both", seconds=2700, default=False),
-    # grow to 300 MiB with no limit, then set memory.high 30% below usage and allocate
+    # grow to 300 MiB with no limit, then set memory.high so usage is about 33% over it, and allocate
     # one 4 KiB page per op: every sleep should hit the 2 s cap
     cfg("anon-clamp-high", "anon", 300, "none", seconds=40, default=False,
         extra=["--set-high-after-grow", str(HIGH), "--churn-kib", "4"]),
