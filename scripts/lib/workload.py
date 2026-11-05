@@ -63,6 +63,11 @@ def main():
     ap.add_argument("--populate", action="store_true",
                     help="anon: MAP_POPULATE, so the kernel charges a chunk in one mmap call")
     ap.add_argument("--cpu", type=int, help="pin this process to one CPU")
+    ap.add_argument("--set-high-after-grow", type=int, metavar="BYTES",
+                    help="anon: write BYTES to the cgroup's memory.high when the grow phase ends")
+    ap.add_argument("--churn-kib", type=int,
+                    help="anon churn: keep the held chunks and allocate one chunk of this size per op"
+                         " (the previous one is freed first)")
     a = ap.parse_args()
     if a.cpu is not None:
         os.sched_setaffinity(0, {a.cpu})
@@ -108,6 +113,8 @@ def main():
 
     i = churn = 0
     reason = None
+    small = None
+    high_set = False
     next_print = t_start
     win_max = 0.0
     while True:
@@ -119,10 +126,27 @@ def main():
         if phase == "c" and churn >= a.churn_ops:
             reason = "done"
             break
+        if phase == "c" and a.set_high_after_grow and not high_set:
+            ts = time.perf_counter_ns()
+            with open(os.path.join(cg, "memory.high"), "w") as f:
+                f.write(str(a.set_high_after_grow))
+            high_set = True
+            if not a.progress:
+                emit({"p": a.proc, "ev": "set_high", "t": ts - t_start,
+                      "write_ns": time.perf_counter_ns() - ts, "high": a.set_high_after_grow,
+                      "cur": current()})
         cur = current()
         h0, m0 = high_max()
         t0 = time.perf_counter_ns()
-        if a.kind == "anon":
+        if a.kind == "anon" and phase == "c" and a.churn_kib:
+            if small is not None:
+                small.close()
+            n = a.churn_kib * 1024
+            small = mmap.mmap(-1, n, flags=flags, prot=mmap.PROT_READ | mmap.PROT_WRITE)
+            small.write(payload[:n])
+            with memoryview(held[int(rnd() * len(held))]) as v:
+                smv[:] = v
+        elif a.kind == "anon":
             if phase == "c":
                 j = int(rnd() * len(held))
                 old = held[j]

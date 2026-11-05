@@ -82,6 +82,10 @@ CONFIGS = [
     cfg("file-over-high", "file", 320, "high"),
     cfg("file-over-both", "file", 320, "both"),
     cfg("anon-over-both-long", "anon", 320, "both", seconds=2700, default=False),
+    # grow to 300 MiB with no limit, then set memory.high 30% below usage and allocate
+    # one 4 KiB page per op: every sleep should hit the 2 s cap
+    cfg("anon-clamp-high", "anon", 300, "none", seconds=40, default=False,
+        extra=["--set-high-after-grow", str(HIGH), "--churn-kib", "4"]),
 ]
 PYTHON = os.path.realpath("/usr/bin/python3")
 STAT_KEYS = ["anon", "file", "shmem", "file_mapped", "active_file", "inactive_file", "kernel",
@@ -355,6 +359,7 @@ def run_one(scope, name, c, rep, outdir, stamp, max_seconds, churn_ops):
         "host_pressure_memory_after": pressure(read("/proc/pressure/memory")),
         "scope_events_after": kv(read(scope + "/memory.events")),
         "utc_end": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "readback_end": {f: read(cg + "/" + f).strip() for f in ["memory.high", "memory.max"]},
     }
     time.sleep(1)
     final["kernel_log"] = kernel_log(unix0 - 1, name)

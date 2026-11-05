@@ -25,6 +25,7 @@ get memcontrol.h        "$UK/include/linux/memcontrol.h?id=$UKID"
 get mm_internal.h       "$UK/mm/internal.h?id=$UKID"
 get resume_user_mode.h  "$UK/include/linux/resume_user_mode.h?id=$UKID"
 get cgroup-v2.rst       "$UK/Documentation/admin-guide/cgroup-v2.rst?id=$UKID"
+get filemap.c           "$UK/mm/filemap.c?id=$UKID"
 get systemd.resource-control.xml "$GH/systemd/systemd/$SYSTEMD/man/systemd.resource-control.xml"
 get runc-fs2-memory.go  "$GH/opencontainers/runc/$RUNC/vendor/github.com/opencontainers/cgroups/fs2/memory.go"
 get runc-systemd-v2.go  "$GH/opencontainers/runc/$RUNC/vendor/github.com/opencontainers/cgroups/systemd/v2.go"
@@ -61,6 +62,8 @@ hdr "include/linux/memcontrol.h, mm/internal.h, include/linux/resume_user_mode.h
 hit memcontrol.h 'define MEMCG_CHARGE_BATCH'
 hit mm_internal.h 'define MAX_RECLAIM_RETRIES'
 hit resume_user_mode.h 'mem_cgroup_handle_over_high'
+hdr "mm/filemap.c (same tag): a page wait counts as a memory stall only for workingset folios"
+span filemap.c '^static inline int folio_wait_bit_common' 'thrashing = true;'
 hdr "Documentation/admin-guide/cgroup-v2.rst (same tag)"
 span cgroup-v2.rst '^  memory.high$' '^  memory.max$'
 span cgroup-v2.rst '^  memory.max$' '^  memory.reclaim$'
@@ -79,7 +82,7 @@ for v in 136 137; do
   hdr "kubernetes $( [ $v = 136 ] && echo v1.36.6 || echo v1.37.2 ) pkg/features/kube_features.go, kubelet config defaults and types"
   span "k$v-kube_features.go" '^	MemoryQoS: \{' '^	\},'
   hit "k$v-defaults.go" 'MemoryThrottlingFactor'
-  hit "k$v-types.go" 'MemoryThrottlingFactor \*float64|when setting the cgroupv2 memory.high|If nil, memory.high is not set|^	// Default: (0\.9|nil)$'
+  span "k$v-types.go" 'MemoryThrottlingFactor specifies the factor' 'MemoryThrottlingFactor \*float64'
   hdr "kubernetes $( [ $v = 136 ] && echo v1.36.6 || echo v1.37.2 ) pkg/kubelet/kuberuntime/kuberuntime_container_linux.go (MemoryQoS)"
   span "k$v-kuberuntime_container_linux.go" '// Set memory.min and memory.high to enforce MemoryQoS' 'if len\(unified\) > 0'
 done

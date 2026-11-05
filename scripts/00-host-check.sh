@@ -21,5 +21,9 @@ mkdir -p results
   echo "## transparent hugepages"; cat /sys/kernel/mm/transparent_hugepage/enabled
   echo "## vm";           for f in overcommit_memory swappiness; do echo "$f $(cat /proc/sys/vm/$f)"; done
   echo "## page size";    getconf PAGESIZE
+  echo "## docker and runc (client commands only, no container is started)"
+  docker version --format 'docker client {{.Client.Version}}, server {{.Server.Version}}' 2>/dev/null || echo "no docker"
+  runc --version 2>/dev/null | head -2 || echo "no runc"
+  docker run --help 2>/dev/null | grep -i -E 'memory|oom' || true
 } > results/00-host.txt 2>&1
 cat results/00-host.txt
