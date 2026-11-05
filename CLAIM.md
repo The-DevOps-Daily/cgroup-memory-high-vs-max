@@ -69,3 +69,42 @@ and each call adds 1 to the `high` counter in `memory.events`.
   delay is off from the formula by more than 2 times at the median.
 - A page cache run under `memory.high` shows throttle sleeps like the
   anonymous runs.
+
+## Added after the smoke runs, before the main matrix (2026-11-05, 11:25 UTC)
+
+The smoke runs (`results/_smoke1` to `_smoke5`, older code, not used in the
+summary) changed two things. We record them here before the main run, and the
+original text above stays as it was.
+
+1. **The penalty is paid per page, not per 64-page batch.** The `high` counter
+   in `memory.events` rises by 17 per sleep (1 + `MAX_RECLAIM_RETRIES`), so the
+   workload now reads it before and after every op. With page faults, one
+   256 KiB op slept up to 64 times, once per page. Each sleep was close to the
+   formula (measured / (sleeps x formula) had a median of 1.04 to 1.16). With
+   `MAP_POPULATE` the same op slept about twice. A new charge only happens when
+   the per-CPU precharge (`consume_stock`) is empty. We do not know what
+   empties it during the sleep, and we did not trace it.
+2. **File pages in the cgroup change everything.** In one smoke run, some of
+   the interpreter's own file pages were charged to the run cgroup. Reclaim
+   took them, the process faulted them back in, and it made no progress for
+   65 s under `memory.high`. Under `memory.max` alone, the same thing happened
+   without an OOM kill for 70 s. Because of this, every run now names its
+   code mode: `warm` (the interpreter's pages are charged outside the run
+   cgroup) or `own` (a fresh copy of the interpreter, read inside the run
+   cgroup, like a container's first start). Every run's disk reads and writes
+   are capped at 100 MiB/s with `io.max`. In the smoke runs the thrash read up
+   to 500 MB/s from a shared disk. One run (`anon-over-max-owncode-fastdisk`,
+   1 repetition) keeps the uncapped disk.
+
+New predictions:
+
+| Run | Prediction |
+| --- | --- |
+| `anon-fit-high`, `anon-fit-both` (warm) | 1 to 64 sleeps per throttled op; per-sleep time within 30% of the formula; no kill |
+| `anon-fit-high-populate` | 3 or fewer sleeps per op; the run finishes its 200 churn ops in under 60 s |
+| `anon-over-both` (warm) | Not killed within 150 s |
+| `anon-over-both-long` (45 min cap, 1 run) | OOM kill after 10 to 45 minutes |
+| `anon-fit-high-owncode`, `anon-over-both-owncode` | No kill in 20 s; `pgsteal` and file refaults keep rising; `memory.current` stays within 3% of `memory.high` |
+| `anon-over-max-owncode` (100 MiB/s cap) | Thrashes at 256 MiB for more than 5 s before the OOM kill |
+| `anon-over-max-owncode-fastdisk` | No OOM kill within 20 s |
+| PSI | Memory `some` under-counts the own-code thrash (most of the time goes to disk reads) |
