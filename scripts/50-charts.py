@@ -51,7 +51,7 @@ def by_mib(config, lo, hi):
 
 
 def main():
-    lo, hi = 226, 256
+    lo, hi = 226, 244  # the memory.high runs end at about 242 MiB; past that only the formula has values
     x = list(range(lo, hi + 1))
     base = st.median(o["op"] / 1e6 for d in runs_of("runs", "anon-over-none") for o in ops(d))
     f64 = [round(base + predict.penalty_ms(m * MIB + MIB // 2), 3) for m in x]
@@ -69,7 +69,9 @@ def main():
         ],
         "refs": [{"value": 1, "label": "1 ms"}],
         "caption": "x axis: memory.current in MiB when the op started (memory.high = 230.4 MiB, memory.max = 256 MiB). "
-                   "Median per 1 MiB over 3 repetitions, warm code, Ubuntu 6.8.0-147, no swap. "
+                   "Median per 1 MiB over 3 repetitions of anon-over, warm code, Ubuntu 6.8.0-147, no swap. "
+                   "memory.max only stays flat up to 256 MiB, then the OOM kill. The formula lines add the "
+                   "no-limit median to the kernel's sleep: once per 64-page op, or once per 4 KiB page. "
                    "Source: results/runs/anon-over-*/ops.jsonl, scripts/50-charts.py.",
     }
 

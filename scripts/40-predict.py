@@ -85,9 +85,10 @@ def main():
                 nosleep += 1
                 continue
             ratios.append((o["op"] / 1e6 - base) / pred)
+            group = "matrix" if batch == "runs" else r["config"]
             for lo, hi in BUCKETS:
                 if lo <= pen < hi and "--populate" not in (r["extra"] or []):
-                    by_pen.setdefault(f"{lo}-{hi} ms", []).append(sleeps)
+                    by_pen.setdefault(group, {}).setdefault(f"{lo}-{hi} ms", []).append(sleeps)
         out["per_sleep"][run] = {
             "ops_checked": len(ratios), "ops_with_partial_reclaim_rounds": mixed,
             "ops_predicted_no_sleep": nosleep,
@@ -95,9 +96,11 @@ def main():
             "within_30pct": (sum(1 for x in ratios if 0.7 <= x <= 1.3) / len(ratios)) if ratios else None,
         }
 
-    for k, v in by_pen.items():
-        out["sleeps_by_penalty"][k] = {"ops": len(v), "sleeps_p10": pct(v, 0.1), "sleeps_p50": pct(v, 0.5),
-                                       "share_64_or_more": round(sum(1 for x in v if x >= 64) / len(v), 3)}
+    for g, buckets in by_pen.items():
+        out["sleeps_by_penalty"][g] = {
+            k: {"ops": len(v), "sleeps_p10": pct(v, 0.1), "sleeps_p50": pct(v, 0.5),
+                "share_64_or_more": round(sum(1 for x in v if x >= 64) / len(v), 3)}
+            for k, v in buckets.items()}
 
     # 2. the 2 s cap
     for (batch, run), r in sorted(runs.items()):
@@ -182,12 +185,14 @@ def main():
                      f"{v['ratio_p90']:.3f} | {100 * v['within_30pct']:.0f}% | {v['ops_with_partial_reclaim_rounds']} |")
     L += ["", "## 1b. Sleeps per 256 KiB op (64 pages), by the formula's sleep length", "",
           "One-process warm runs that touch memory with page faults (not `--populate`), ops whose rise in `high` "
-          "is a multiple of 17. 64 or more means one sleep per page.", "",
-          "| sleep length | ops | sleeps p10 | sleeps p50 | ops with 64 or more |", "| --- " * 5 + "|"]
-    for lo, hi in BUCKETS:
-        v = out["sleeps_by_penalty"].get(f"{lo}-{hi} ms")
-        if v:
-            L.append(f"| {lo} to {hi} ms | {v['ops']} | {v['sleeps_p10']} | {v['sleeps_p50']} | {100 * v['share_64_or_more']:.0f}% |")
+          "is a multiple of 17. 64 or more means one sleep per page. `matrix`: all such runs in results/runs, where "
+          "the workload inherited the driver's CPU 0 and the driver sampled every 100 ms. `diag-*`: results/diag.", "",
+          "| group | sleep length | ops | sleeps p10 | sleeps p50 | ops with 64 or more |", "| --- " * 6 + "|"]
+    for g, buckets in out["sleeps_by_penalty"].items():
+        for lo, hi in BUCKETS:
+            v = buckets.get(f"{lo}-{hi} ms")
+            if v:
+                L.append(f"| {g} | {lo} to {hi} ms | {v['ops']} | {v['sleeps_p10']} | {v['sleeps_p50']} | {100 * v['share_64_or_more']:.0f}% |")
     L += ["", "## 2. The 2 s cap (`MEMCG_MAX_HIGH_DELAY_JIFFIES`)", "",
           "| run | memory.high set at MiB | over high | formula without cap, ms | ops | sleeps per op | per sleep p50 ms | min | max |",
           "| --- " * 9 + "|"]

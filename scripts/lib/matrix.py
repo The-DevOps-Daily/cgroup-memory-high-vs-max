@@ -54,11 +54,17 @@ LIMITS = {"none": (None, None), "max": (None, MAX), "high": (HIGH, None), "both"
 # io False: no io.max cap on this run (the disk's own speed).
 
 
+# sample_ms: how often the driver samples the cgroup files.
+# The driver is pinned to CPU 0 and the workload inherits that unless --cpu is given, so
+# in the main matrix the workload shared CPU 0 with the sampler. The diag-* runs measure
+# what that changed: workload on CPU 2 (--cpu 2) and/or the sampler at 1 s.
+
+
 def cfg(name, kind, target, limits, procs=1, extra=(), code="warm", seconds=None, default=True,
-        reps=99, io=True):
+        reps=99, io=True, sample_ms=100):
     return {"name": name, "kind": kind, "target": target, "limits": limits, "procs": procs,
             "extra": list(extra), "code": code, "seconds": seconds, "default": default,
-            "reps": reps, "io": io}
+            "reps": reps, "io": io, "sample_ms": sample_ms}
 
 
 CONFIGS = [
@@ -86,6 +92,16 @@ CONFIGS = [
     # one 4 KiB page per op: every sleep should hit the 2 s cap
     cfg("anon-clamp-high", "anon", 300, "none", seconds=40, default=False,
         extra=["--set-high-after-grow", str(HIGH), "--churn-kib", "4"]),
+    cfg("diag-over-high-cpu0-100ms", "anon", 320, "high", seconds=120, default=False),
+    cfg("diag-over-high-cpu2-100ms", "anon", 320, "high", seconds=120, default=False,
+        extra=["--cpu", "2"]),
+    cfg("diag-over-high-cpu0-1s", "anon", 320, "high", seconds=120, default=False, sample_ms=1000),
+    cfg("diag-over-high-cpu2-1s", "anon", 320, "high", seconds=120, default=False,
+        extra=["--cpu", "2"], sample_ms=1000),
+    cfg("diag-over-both-cpu2-1s", "anon", 320, "both", seconds=120, default=False,
+        extra=["--cpu", "2"], sample_ms=1000),
+    cfg("diag-fit-high-cpu2-1s", "anon", W1, "high", seconds=120, default=False,
+        extra=["--cpu", "2"], sample_ms=1000),
 ]
 PYTHON = os.path.realpath("/usr/bin/python3")
 STAT_KEYS = ["anon", "file", "shmem", "file_mapped", "active_file", "inactive_file", "kernel",
@@ -261,7 +277,8 @@ def run_one(scope, name, c, rep, outdir, stamp, max_seconds, churn_ops):
         write(cg + "/io.max", f"{disk_of(ROOT)} rbps={IO_BPS} wbps={IO_BPS}")
     meta = {
         "stamp": stamp, "name": name, "kind": kind, "target_mib": target, "procs": nprocs,
-        "extra_args": extra, "code": code, "io_cap": c["io"],
+        "extra_args": extra, "code": code, "io_cap": c["io"], "sample_ms": c["sample_ms"],
+        "driver_cpus": sorted(os.sched_getaffinity(0)),
         "limits": limits_key, "rep": rep, "max_seconds": max_seconds, "churn_ops": churn_ops,
         "cgroup": cg,
         "readback": {f: read(cg + "/" + f).strip() for f in
@@ -315,7 +332,7 @@ def run_one(scope, name, c, rep, outdir, stamp, max_seconds, churn_ops):
         now = time.perf_counter_ns()
         if now >= next_sample:
             smp_f.write(json.dumps(sample(cg, pids, t0), separators=(",", ":")) + "\n")
-            next_sample = now + 100_000_000
+            next_sample = now + c["sample_ms"] * 1_000_000
         if now >= hard_deadline and not hard_killed:
             for pr in procs:
                 pr.kill()

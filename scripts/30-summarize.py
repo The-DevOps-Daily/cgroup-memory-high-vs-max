@@ -20,7 +20,7 @@ from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CODE_FILES = ["scripts/lib/workload.py", "scripts/lib/matrix.py", "scripts/20-run-matrix.sh"]
-BATCHES = ["runs", "clamp"]
+BATCHES = ["runs", "clamp", "diag"]
 MIB = 1048576
 HIGH = 241590272
 MAX = 268435456

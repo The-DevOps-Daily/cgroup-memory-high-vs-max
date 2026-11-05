@@ -37,6 +37,7 @@ for v in 136 137; do
   get "k$v-kuberuntime_container_linux.go" "$GH/kubernetes/kubernetes/$ref/pkg/kubelet/kuberuntime/kuberuntime_container_linux.go"
   get "k$v-defaults.go" "$GH/kubernetes/kubernetes/$ref/pkg/kubelet/apis/config/v1beta1/defaults.go"
   get "k$v-types.go" "$GH/kubernetes/kubernetes/$ref/staging/src/k8s.io/kubelet/config/v1beta1/types.go"
+  get "k$v-core-v1-defaults.go" "$GH/kubernetes/kubernetes/$ref/pkg/apis/core/v1/defaults.go"
 done
 get kep-2570.yaml  "$GH/kubernetes/enhancements/$ENH/keps/sig-node/2570-memory-qos/kep.yaml"
 get kep-2570.md    "$GH/kubernetes/enhancements/$ENH/keps/sig-node/2570-memory-qos/README.md"
@@ -57,6 +58,7 @@ span memcontrol.c '^void mem_cgroup_handle_over_high' '^}'
 span memcontrol.c '^static bool consume_stock' '^}'
 span memcontrol.c '^static void __refill_stock' '^}'
 span memcontrol.c '^static int try_charge_memcg' '^retry:'
+span memcontrol.c 'if \(unlikely\(task_in_memcg_oom\(current\)\)\)' '^nomem:'
 span memcontrol.c '^done_restock:' '^}'
 hdr "include/linux/memcontrol.h, mm/internal.h, include/linux/resume_user_mode.h (same tag)"
 hit memcontrol.h 'define MEMCG_CHARGE_BATCH'
@@ -83,6 +85,8 @@ for v in 136 137; do
   span "k$v-kube_features.go" '^	MemoryQoS: \{' '^	\},'
   hit "k$v-defaults.go" 'MemoryThrottlingFactor'
   span "k$v-types.go" 'MemoryThrottlingFactor specifies the factor' 'MemoryThrottlingFactor \*float64'
+  hdr "kubernetes $( [ $v = 136 ] && echo v1.36.6 || echo v1.37.2 ) pkg/apis/core/v1/defaults.go: an omitted request is set to the limit"
+  span "k$v-core-v1-defaults.go" '^func SetDefaults_Pod' 'Requests\[key\] = value.DeepCopy'
   hdr "kubernetes $( [ $v = 136 ] && echo v1.36.6 || echo v1.37.2 ) pkg/kubelet/kuberuntime/kuberuntime_container_linux.go (MemoryQoS)"
   span "k$v-kuberuntime_container_linux.go" '// Set memory.min and memory.high to enforce MemoryQoS' 'if len\(unified\) > 0'
 done
