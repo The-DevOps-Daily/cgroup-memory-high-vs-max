@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 3287764,
+  "usage_usec": 3485842,
+  "user_usec": 198078
+ },
+ "current": 3706880,
+ "events": {
+  "high": 9499,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 9499,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 34.62,
+   "avg300": 64.91,
+   "avg60": 50.27,
+   "total": 1129090220.0
+  },
+  "some": {
+   "avg10": 37.86,
+   "avg300": 70.04,
+   "avg60": 57.14,
+   "total": 1233541050.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 2532503552,
+   "rios": 21144,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 77.44,
+   "avg300": 6.56,
+   "avg60": 27.46,
+   "total": 20501109.0
+  },
+  "some": {
+   "avg10": 77.44,
+   "avg300": 6.56,
+   "avg60": 27.46,
+   "total": 20501109.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 242298880,
+ "pressure": {
+  "full": {
+   "avg10": 43.88,
+   "avg300": 3.82,
+   "avg60": 15.94,
+   "total": 11938199.0
+  },
+  "some": {
+   "avg10": 43.88,
+   "avg300": 3.82,
+   "avg60": 15.94,
+   "total": 11938199.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 284155,
+  "low": 0,
+  "max": 99868,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 3338240,
+  "anon": 0,
+  "file": 3682304,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 344064,
+  "kernel": 24576,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 79830,
+  "pgmajfault": 19867,
+  "pgscan": 756601,
+  "pgscan_direct": 756601,
+  "pgsteal": 617388,
+  "pgsteal_direct": 617388,
+  "shmem": 0,
+  "slab": 17048,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 616790
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:48:14Z",
+ "wall_ns": 24488764391
+}

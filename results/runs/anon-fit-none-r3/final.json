@@ -1,0 +1,113 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 241137,
+  "usage_usec": 391132,
+  "user_usec": 149995
+ },
+ "current": 16384,
+ "events": {
+  "high": 0,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 0,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 7.69,
+   "avg300": 59.75,
+   "avg60": 32.33,
+   "total": 1480801314.0
+  },
+  "some": {
+   "avg10": 7.89,
+   "avg300": 64.69,
+   "avg60": 35.26,
+   "total": 1616358348.0
+  }
+ },
+ "io": {
+  "253:0": {}
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 250847232,
+ "pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 392157,
+  "low": 0,
+  "max": 119367,
+  "oom": 2,
+  "oom_group_kill": 0,
+  "oom_kill": 2
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 16384,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 74009,
+  "pgmajfault": 0,
+  "pgscan": 0,
+  "pgscan_direct": 0,
+  "pgsteal": 0,
+  "pgsteal_direct": 0,
+  "shmem": 0,
+  "slab": 9400,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 0
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:57:14Z",
+ "wall_ns": 434283889
+}

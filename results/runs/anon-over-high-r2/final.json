@@ -1,0 +1,116 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 407148,
+  "usage_usec": 717745,
+  "user_usec": 310597
+ },
+ "current": 8192,
+ "events": {
+  "high": 35901,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 35901,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": true,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 74.73,
+   "avg300": 65.04,
+   "avg60": 64.52,
+   "total": 1234163479.0
+  },
+  "some": {
+   "avg10": 81.78,
+   "avg300": 71.53,
+   "avg60": 73.09,
+   "total": 1351574244.0
+  }
+ },
+ "io": {
+  "253:0": {}
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  }
+ },
+ "kernel_log": [
+  "2026-11-05T11:48:17.439678+00:00 testhost kernel: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=ddmemhigh-20261105T112606Z.scope,mems_allowed=0,oom_memcg=/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-max-r2,task_memcg=/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-max-r2,task=python3.12,pid=151581,uid=0",
+  "2026-11-05T11:48:17.439699+00:00 testhost kernel: Memory cgroup out of memory: Killed process 151581 (python3.12) total-vm:276772kB, anon-rss:261504kB, file-rss:7296kB, shmem-rss:0kB, UID:0 pgtables:580kB oom_score_adj:0"
+ ],
+ "peak": 253681664,
+ "pressure": {
+  "full": {
+   "avg10": 99.0,
+   "avg300": 40.55,
+   "avg60": 91.31,
+   "total": 154177546.0
+  },
+  "some": {
+   "avg10": 99.0,
+   "avg300": 40.55,
+   "avg60": 91.31,
+   "total": 154177546.0
+  }
+ },
+ "returncodes": [
+  -9
+ ],
+ "scope_events_after": {
+  "high": 320056,
+  "low": 0,
+  "max": 99903,
+  "oom": 2,
+  "oom_group_kill": 0,
+  "oom_kill": 2
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 8192,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 61899,
+  "pgmajfault": 0,
+  "pgscan": 0,
+  "pgscan_direct": 0,
+  "pgsteal": 0,
+  "pgsteal_direct": 0,
+  "shmem": 0,
+  "slab": 224,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 0
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:50:53Z",
+ "wall_ns": 155108932847
+}

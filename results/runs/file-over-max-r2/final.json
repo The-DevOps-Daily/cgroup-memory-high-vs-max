@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 352261,
+  "usage_usec": 512778,
+  "user_usec": 160516
+ },
+ "current": 261611520,
+ "events": {
+  "high": 0,
+  "low": 0,
+  "max": 324,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 0,
+  "low": 0,
+  "max": 324,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 20.07,
+   "avg300": 61.82,
+   "avg60": 38.11,
+   "total": 1480754091.0
+  },
+  "some": {
+   "avg10": 20.61,
+   "avg300": 66.94,
+   "avg60": 41.57,
+   "total": 1616310813.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 345767936,
+   "rios": 1319,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 13.94,
+   "avg300": 0.52,
+   "avg60": 2.51,
+   "total": 2766585.0
+  },
+  "some": {
+   "avg10": 13.94,
+   "avg300": 0.52,
+   "avg60": 2.51,
+   "total": 2766585.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 268435456,
+ "pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 18914.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 18914.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 391316,
+  "low": 0,
+  "max": 119367,
+  "oom": 2,
+  "oom_group_kill": 0,
+  "oom_kill": 2
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 260833280,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 260833280,
+  "kernel": 778240,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 1808,
+  "pgmajfault": 0,
+  "pgscan": 20736,
+  "pgscan_direct": 20736,
+  "pgsteal": 20736,
+  "pgsteal_direct": 20736,
+  "shmem": 0,
+  "slab": 772344,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 2432
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:57:04Z",
+ "wall_ns": 3339560341
+}

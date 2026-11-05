@@ -1,0 +1,117 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 204568,
+  "usage_usec": 331177,
+  "user_usec": 126608
+ },
+ "current": 16384,
+ "events": {
+  "high": 0,
+  "low": 0,
+  "max": 35,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "events_local": {
+  "high": 0,
+  "low": 0,
+  "max": 35,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 19.04,
+   "avg300": 73.04,
+   "avg60": 57.95,
+   "total": 1797955031.0
+  },
+  "some": {
+   "avg10": 19.81,
+   "avg300": 76.03,
+   "avg60": 59.8,
+   "total": 1942553039.0
+  }
+ },
+ "io": {
+  "253:0": {}
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  }
+ },
+ "kernel_log": [
+  "2026-11-05T12:03:37.693565+00:00 testhost kernel: Memory cgroup stats for /ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-max-r3:",
+  "2026-11-05T12:03:37.695227+00:00 testhost kernel: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=ddmemhigh-20261105T112606Z.scope,mems_allowed=0,oom_memcg=/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-max-r3,task_memcg=/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-max-r3,task=python3.12,pid=163108,uid=0",
+  "2026-11-05T12:03:37.695243+00:00 testhost kernel: Memory cgroup out of memory: Killed process 163108 (python3.12) total-vm:276772kB, anon-rss:261504kB, file-rss:7296kB, shmem-rss:0kB, UID:0 pgtables:576kB oom_score_adj:0"
+ ],
+ "peak": 268435456,
+ "pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 691.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 691.0
+  }
+ },
+ "returncodes": [
+  -9
+ ],
+ "scope_events_after": {
+  "high": 470308,
+  "low": 0,
+  "max": 119402,
+  "oom": 3,
+  "oom_group_kill": 0,
+  "oom_kill": 3
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 16384,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 65559,
+  "pgmajfault": 0,
+  "pgscan": 0,
+  "pgscan_direct": 0,
+  "pgsteal": 0,
+  "pgsteal_direct": 0,
+  "shmem": 0,
+  "slab": 1640,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 0
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T12:03:37Z",
+ "wall_ns": 363553000
+}

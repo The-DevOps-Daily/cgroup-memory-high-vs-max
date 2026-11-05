@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 255265,
+  "usage_usec": 405879,
+  "user_usec": 150613
+ },
+ "current": 336584704,
+ "events": {
+  "high": 0,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 0,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 19.64,
+   "avg300": 44.54,
+   "avg60": 34.63,
+   "total": 824330300.0
+  },
+  "some": {
+   "avg10": 19.9,
+   "avg300": 51.44,
+   "avg60": 37.44,
+   "total": 914523816.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 335544320,
+   "rios": 1280,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 14.85,
+   "avg300": 0.56,
+   "avg60": 2.68,
+   "total": 2765753.0
+  },
+  "some": {
+   "avg10": 14.85,
+   "avg300": 0.56,
+   "avg60": 2.68,
+   "total": 2765753.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 343621632,
+ "pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 0.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 197347,
+  "low": 0,
+  "max": 99533,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 335806464,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 335806464,
+  "kernel": 778240,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 1807,
+  "pgmajfault": 0,
+  "pgscan": 0,
+  "pgscan_direct": 0,
+  "pgsteal": 0,
+  "pgsteal_direct": 0,
+  "shmem": 0,
+  "slab": 771848,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 0
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:41:38Z",
+ "wall_ns": 3212032332
+}

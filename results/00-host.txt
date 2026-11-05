@@ -1,0 +1,53 @@
+# 2026-11-05T12:44:42Z
+## kernel
+6.8.0-147-generic
+Ubuntu 6.8.0-147.147-generic 6.8.12
+## os
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+## systemd
+systemd 255 (255.4-1ubuntu8.18)
+## python
+Python 3.12.3
+## cpus
+4
+## memory
+MemTotal:        8131780 kB
+MemAvailable:    6605776 kB
+SwapTotal:             0 kB
+## swap devices
+Filename				Type		Size		Used		Priority
+## zswap
+N
+## cgroup fs
+cgroup2fs
+## root cgroup.controllers
+cpuset cpu io memory hugetlb pids rdma misc
+## PSI
+cpu
+io
+memory
+some avg10=87.30 avg60=90.02 avg300=89.40 total=4137638923
+full avg10=86.66 avg60=88.79 avg300=87.13 total=3933678345
+## CONFIG_HZ and memcg/PSI config
+CONFIG_PSI=y
+CONFIG_MEMCG=y
+CONFIG_MEMCG_KMEM=y
+CONFIG_HZ_1000=y
+CONFIG_HZ=1000
+## transparent hugepages
+always [madvise] never
+## vm
+overcommit_memory 0
+swappiness 60
+## page size
+4096
+## docker and runc (client commands only, no container is started)
+docker client 29.9.3, server 29.9.3
+runc version 1.5.2
+commit: v1.5.2-0-g29dd3dc2
+  -m, --memory bytes                     Memory limit
+      --memory-reservation bytes         Memory soft limit
+      --memory-swap bytes                Swap limit equal to memory plus
+      --memory-swappiness int            Tune container memory swappiness
+      --oom-kill-disable                 Disable OOM Killer
+      --oom-score-adj int                Tune host's OOM preferences

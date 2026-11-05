@@ -6,7 +6,8 @@ scripts/00-host-check.sh && scripts/10-systemd-map.sh && scripts/15-make-file.sh
 scripts/20-run-matrix.sh --reps 3                                            # about 46 minutes
 scripts/20-run-matrix.sh --reps 1 --only anon-over-both-long                 # up to 45 minutes
 scripts/20-run-matrix.sh --out results/clamp --reps 3 --only anon-clamp-high # about 3 minutes
-scripts/25-demo.sh && scripts/90-cleanup.sh
+scripts/20-run-matrix.sh --out results/diag --reps 3 --only diag-over-high-cpu0-100ms,diag-over-high-cpu2-100ms,diag-over-high-cpu0-1s,diag-over-high-cpu2-1s,diag-over-both-cpu2-1s,diag-fit-high-cpu2-1s
+scripts/25-demo.sh && scripts/90-cleanup.sh && scripts/91-redact-host.sh "$(hostname)"
 # anywhere with Python 3 and git
 scripts/01-source-check.sh && scripts/30-summarize.py && scripts/40-predict.py && scripts/50-charts.py
 ```
@@ -42,7 +43,7 @@ It needs a cgroup v2 Linux host where you can create cgroups: root, or a subtree
 
 Full tables: [results/summary.md](results/summary.md) and [results/predict.md](results/predict.md). Host: Ubuntu 24.04, kernel 6.8.0-147-generic, systemd 255, 4 vCPU, 7.75 GiB, no swap, `CONFIG_HZ=1000`. `memory.max` = 256 MiB, `memory.high` = 230.4 MiB.
 
-| Run (warm code, 3 repetitions) | Outcome | Numbers |
+| Run (warm code, 3 repetitions unless noted; workload on CPU 0 with the sampler, see below) | Outcome | Numbers |
 | --- | --- | --- |
 | asks for 320 MiB, `memory.max` only | OOM kill 3 of 3 | killed 0.28 to 0.39 s after start; p99 of the last 10% of ops 0.29 to 0.41 ms |
 | asks for 320 MiB, `memory.high` only | not killed in 150 s | 241.5 to 242.2 MiB at the cap, growing 25 to 30 KiB/s; median 10.3 s per 256 KiB op at 241 MiB |
@@ -51,11 +52,15 @@ Full tables: [results/summary.md](results/summary.md) and [results/predict.md](r
 | same, `MAP_POPULATE` | done in about 41 s | 2 sleeps per op, median churn op 191.8 ms |
 | asks for 320 MiB, both limits | not killed in 150 s | 241.7 to 242.0 MiB at the cap |
 | asks for 320 MiB, 4 processes, `memory.high` | not killed in 150 s | 249.1 to 250.8 MiB at the cap |
-LONG-ROW
-CLAMP-ROW
+| asks for 320 MiB, both limits, 45 min cap, 1 run | OOM kill after 1,747.7 s (29.1 min) | formula with one sleep per page predicted 1,720 s; with one per 64 pages, 27 s |
+| grows to 300 MiB, then `memory.high` set so usage is 33.3% over it | not killed in 40 s | median sleep 2,047.9 ms: the 2,000 ms cap rounded up to the timer wheel's 64 ms step |
 
-- Time per sleep: measured / (sleeps x kernel formula) has a median of 1.08 to 1.10 in every single-process run; 97% to 100% of throttled ops are within 30%.
-- Sleeps per 64-page op: median 2 when the formula's sleep is 11 to 25 ms, 64 (one per page) in 93% to 100% of ops once it is 50 ms or more. With `MAP_POPULATE`: 2.
+**The shared CPU.** `matrix.py` pins the driver to CPU 0 before it starts the workload, so every workload in `results/runs` inherited CPU 0 and shared it with the sampler, which wakes every 100 ms and allocates in its own cgroup. That empties the workload's per-CPU precharge, so a throttled task pays a new sleep for almost every page. `results/diag` measures this: the workload on CPU 0 or CPU 2 (`--cpu 2`), the sampler every 100 ms or 1 s. Read the matrix numbers for `memory.high` as "next to a busy neighbour".
+
+- Time per sleep: measured / (sleeps x kernel formula) has a median of 1.08 to 1.10 in every single-process matrix run; 97% to 100% of throttled ops are within 30%. Half a timer-wheel step per sleep explains part of the excess (1.030 to 1.055 for sleeps of 64 ms or more).
+- Sleeps per 64-page op when the formula's sleep is 50 ms or more: median 64 (one per page) in the matrix and with the sampler on the same CPU at 100 ms; median 1 or 2 with the workload on CPU 2 or the sampler at 1 s, but with phases of 64 that took 46% to 72% of the throttled time. With `MAP_POPULATE`: 2 (3 in 8 of 600 churn ops).
+- Needs 239 MiB, `memory.high` only, workload on CPU 2, sampler at 1 s: median churn op 191.8 ms in 3 of 3 runs (about 750 times the no-limit median, against about 24,000 times in the matrix); all 200 churn ops done in 2 of 3 runs within 120 s.
+- Asks for 320 MiB, both limits, workload on CPU 2, sampler at 1 s: not killed within 120 s in 3 of 3 runs; 240.8 to 254.4 MiB at the cap.
 - PSI memory `some` total matches the ops' time over baseline (ratio 1.003 to 1.068). The throttled task is in state `D` in `mem_cgroup_handle_over_high` in 98% to 99% of samples.
 - Own code charged to the cgroup (20 s cap, disk at 100 MiB/s): under `memory.high` and both, stuck at 230.2 to 230.4 MiB; under `memory.max` only, held 255.9 MiB with 19,140 to 20,019 `max` events and no OOM kill in 3 of 3; 2.4 to 2.6 GB read from disk per run; memory PSI `some` 8% under `memory.max`, io PSI `some` 85%. Uncapped disk: 10,483 MB read in 25 s, not killed.
 - Page cache (`file-over-*`): not killed and not throttled in any of 12 runs.
@@ -64,7 +69,7 @@ CLAMP-ROW
 ## What this does not show
 
 - One host, one kernel, no swap. With swap or zswap, both limits can behave differently. Newer kernels changed the memcg charge code.
-- Why the per-CPU precharge is empty after a sleep was read from the source, not traced.
+- What empties the per-CPU precharge was read from the source, not traced. Besides our sampler, other work on the shared host did it in phases.
 - The own-code runs were stopped after 20 s because they read about 100 MB/s from a shared disk, so we do not know how long the thrash lasts before an OOM kill.
 - The workload is a Python loop. Other runtimes touch memory differently, and the `MAP_POPULATE` run shows that the touch pattern changes the cost.
 - `memory.events` counts the whole cgroup, so the 4-process run is used for growth only.

@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 3243010,
+  "usage_usec": 3415651,
+  "user_usec": 172640
+ },
+ "current": 24576,
+ "events": {
+  "high": 9525,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 9525,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": true,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 53.75,
+   "avg300": 47.13,
+   "avg60": 43.89,
+   "total": 818423679.0
+  },
+  "some": {
+   "avg10": 54.79,
+   "avg300": 54.76,
+   "avg60": 48.36,
+   "total": 908568843.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 2597650432,
+   "rios": 21745,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 78.07,
+   "avg300": 6.72,
+   "avg60": 28.07,
+   "total": 21480918.0
+  },
+  "some": {
+   "avg10": 78.07,
+   "avg300": 6.72,
+   "avg60": 28.07,
+   "total": 21480918.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 242089984,
+ "pressure": {
+  "full": {
+   "avg10": 56.07,
+   "avg300": 4.55,
+   "avg60": 19.22,
+   "total": 14300474.0
+  },
+  "some": {
+   "avg10": 56.07,
+   "avg300": 4.55,
+   "avg60": 19.22,
+   "total": 14300474.0
+  }
+ },
+ "returncodes": [
+  -9
+ ],
+ "scope_events_after": {
+  "high": 197347,
+  "low": 0,
+  "max": 20053,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 24576,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 79906,
+  "pgmajfault": 20298,
+  "pgscan": 751104,
+  "pgscan_direct": 751104,
+  "pgsteal": 634192,
+  "pgsteal_direct": 634192,
+  "shmem": 0,
+  "slab": 16800,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 632700
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:41:08Z",
+ "wall_ns": 25090982846
+}

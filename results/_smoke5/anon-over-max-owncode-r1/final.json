@@ -1,0 +1,104 @@
+{
+ "current": 32768,
+ "events": {
+  "high": 0,
+  "low": 0,
+  "max": 17711,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "events_local": {
+  "high": 0,
+  "low": 0,
+  "max": 17711,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 6.02,
+   "avg300": 11.66,
+   "avg60": 4.98,
+   "total": 278980246.0
+  },
+  "some": {
+   "avg10": 6.14,
+   "avg300": 12.98,
+   "avg60": 5.07,
+   "total": 304952977.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 2256130048,
+   "rios": 19328,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "kernel_log": [
+  "2026-11-05T11:22:43.365612+00:00 testhost kernel: Memory cgroup stats for /ddmemhigh.slice/ddmemhigh-20261105T112221Z.scope/anon-over-max-owncode-r1:",
+  "2026-11-05T11:22:43.366401+00:00 testhost kernel: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=ddmemhigh-20261105T112221Z.scope,mems_allowed=0,oom_memcg=/ddmemhigh.slice/ddmemhigh-20261105T112221Z.scope/anon-over-max-owncode-r1,task_memcg=/ddmemhigh.slice/ddmemhigh-20261105T112221Z.scope/anon-over-max-owncode-r1,task=python3,pid=139359,uid=0",
+  "2026-11-05T11:22:43.366416+00:00 testhost kernel: Memory cgroup out of memory: Killed process 139359 (python3) total-vm:276520kB, anon-rss:261376kB, file-rss:3200kB, shmem-rss:0kB, UID:0 pgtables:576kB oom_score_adj:0"
+ ],
+ "peak": 268435456,
+ "pressure": {
+  "full": {
+   "avg10": 6.71,
+   "avg300": 0.55,
+   "avg60": 2.33,
+   "total": 1913244.0
+  },
+  "some": {
+   "avg10": 6.71,
+   "avg300": 0.55,
+   "avg60": 2.33,
+   "total": 1913244.0
+  }
+ },
+ "returncodes": [
+  -9
+ ],
+ "scope_events_after": {
+  "high": 0,
+  "low": 0,
+  "max": 17711,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "ad953944af2e7599",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 32768,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 83847,
+  "pgmajfault": 17486,
+  "pgscan": 578803,
+  "pgscan_direct": 578803,
+  "pgsteal": 550813,
+  "pgsteal_direct": 550813,
+  "shmem": 0,
+  "slab": 18216,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 549313
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:22:43Z",
+ "wall_ns": 21815332307
+}

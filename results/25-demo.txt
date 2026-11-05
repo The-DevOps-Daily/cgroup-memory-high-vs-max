@@ -1,0 +1,19 @@
+# 2026-11-05T12:44:12Z 6.8.0-147-generic, systemd 255 (255.4-1ubuntu8.18)
+$ systemd-run --scope -p MemoryMax=256M python3 -I scripts/lib/workload.py --kind anon --target-mib 320 --progress
+pid 173416 in /sys/fs/cgroup/ddmemhigh.slice/run-r765e1a07143e4aa1be21a9eb2292aaff.scope, memory.high=max memory.max=268435456
+   0.0s  held    0 MiB  memory.current    7.0 MiB  ops     1  slowest op     0.33 ms
+scripts/25-demo.sh: line 17: 173416 Killed                  systemd-run --scope --quiet --slice=ddmemhigh.slice -p MemoryMax=256M $w
+exit status 137
+$ systemd-run --scope -p MemoryHigh=241590272 -p MemoryMax=256M python3 -I scripts/lib/workload.py --kind anon --target-mib 320 --progress --max-seconds 30
+pid 173417 in /sys/fs/cgroup/ddmemhigh.slice/run-rbd28bd3d399c47a9ab104c3b6d4b6eaf.scope, memory.high=241590272 memory.max=268435456
+   0.0s  held    0 MiB  memory.current    6.7 MiB  ops     1  slowest op     0.30 ms
+   1.0s  held  231 MiB  memory.current  238.2 MiB  ops   924  slowest op    79.86 ms
+   7.1s  held  231 MiB  memory.current  238.5 MiB  ops   926  slowest op  5488.05 ms
+  12.8s  held  231 MiB  memory.current  238.8 MiB  ops   927  slowest op  5759.67 ms
+  19.0s  held  232 MiB  memory.current  239.0 MiB  ops   928  slowest op  6135.79 ms
+  25.5s  held  232 MiB  memory.current  239.3 MiB  ops   929  slowest op  6511.84 ms
+  27.5s  held  232 MiB  memory.current  239.8 MiB  ops   930  slowest op  1992.06 ms
+  28.5s  held  234 MiB  memory.current  241.1 MiB  ops   936  slowest op   359.79 ms
+  29.6s  held  234 MiB  memory.current  241.9 MiB  ops   939  slowest op   759.73 ms
+end: time after 30.4s, 940 ops, held 235 MiB, memory.current 242.1 MiB
+exit status 0

@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 338027,
+  "usage_usec": 466930,
+  "user_usec": 128902
+ },
+ "current": 234610688,
+ "events": {
+  "high": 418,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 418,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 13.45,
+   "avg300": 60.98,
+   "avg60": 35.65,
+   "total": 1480776559.0
+  },
+  "some": {
+   "avg10": 13.82,
+   "avg300": 66.03,
+   "avg60": 38.89,
+   "total": 1616333428.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 350748672,
+   "rios": 1338,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 14.85,
+   "avg300": 0.56,
+   "avg60": 2.68,
+   "total": 2881652.0
+  },
+  "some": {
+   "avg10": 14.85,
+   "avg300": 0.56,
+   "avg60": 2.68,
+   "total": 2881652.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 242110464,
+ "pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 29196.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 29196.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 391734,
+  "low": 0,
+  "max": 119367,
+  "oom": 2,
+  "oom_group_kill": 0,
+  "oom_kill": 2
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 262144,
+  "anon": 0,
+  "file": 233832448,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 233570304,
+  "kernel": 778240,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 1807,
+  "pgmajfault": 0,
+  "pgscan": 28544,
+  "pgscan_direct": 28544,
+  "pgsteal": 28544,
+  "pgsteal_direct": 28544,
+  "shmem": 0,
+  "slab": 771848,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 3648
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:57:08Z",
+ "wall_ns": 3404425386
+}

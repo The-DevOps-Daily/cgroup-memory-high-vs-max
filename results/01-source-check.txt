@@ -1,0 +1,728 @@
+# Upstream lines this repo relies on. Fetched 2026-11-05T12:46:48Z.
+
+=== Ubuntu kernel 6.8.0-147.147 mm/memcontrol.c (https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/noble/plain/mm/memcontrol.c?id=0495f811cae0b8b7c718d936a2057b25cee7cf0c)
+ 2472  static unsigned long reclaim_high(struct mem_cgroup *memcg,
+ 2473  				  unsigned int nr_pages,
+ 2474  				  gfp_t gfp_mask)
+ 2475  {
+ 2476  	unsigned long nr_reclaimed = 0;
+ 2477  
+ 2478  	do {
+ 2479  		unsigned long pflags;
+ 2480  
+ 2481  		if (page_counter_read(&memcg->memory) <=
+ 2482  		    READ_ONCE(memcg->memory.high))
+ 2483  			continue;
+ 2484  
+ 2485  		memcg_memory_event(memcg, MEMCG_HIGH);
+ 2486  
+ 2487  		psi_memstall_enter(&pflags);
+ 2488  		nr_reclaimed += try_to_free_mem_cgroup_pages(memcg, nr_pages,
+ 2489  							gfp_mask,
+ 2490  							MEMCG_RECLAIM_MAY_SWAP);
+ 2491  		psi_memstall_leave(&pflags);
+ 2492  	} while ((memcg = parent_mem_cgroup(memcg)) &&
+ 2493  		 !mem_cgroup_is_root(memcg));
+ 2494  
+ 2495  	return nr_reclaimed;
+ 2496  }
+ 2507   * Clamp the maximum sleep time per allocation batch to 2 seconds. This is
+ 2508   * enough to still cause a significant slowdown in most cases, while still
+ 2509   * allowing diagnostics and tracing to proceed without becoming stuck.
+ 2510   */
+ 2511  #define MEMCG_MAX_HIGH_DELAY_JIFFIES (2UL*HZ)
+ 2512  
+ 2513  /*
+ 2514   * When calculating the delay, we use these either side of the exponentiation to
+ 2515   * maintain precision and scale to a reasonable number of jiffies (see the table
+ 2516   * below.
+ 2517   *
+ 2518   * - MEMCG_DELAY_PRECISION_SHIFT: Extra precision bits while translating the
+ 2519   *   overage ratio to a delay.
+ 2520   * - MEMCG_DELAY_SCALING_SHIFT: The number of bits to scale down the
+ 2521   *   proposed penalty in order to reduce to a reasonable number of jiffies, and
+ 2522   *   to produce a reasonable delay curve.
+ 2523   *
+ 2524   * MEMCG_DELAY_SCALING_SHIFT just happens to be a number that produces a
+ 2525   * reasonable delay curve compared to precision-adjusted overage, not
+ 2526   * penalising heavily at first, but still making sure that growth beyond the
+ 2527   * limit penalises misbehaviour cgroups by slowing them down exponentially. For
+ 2528   * example, with a high of 100 megabytes:
+ 2529   *
+ 2530   *  +-------+------------------------+
+ 2531   *  | usage | time to allocate in ms |
+ 2532   *  +-------+------------------------+
+ 2533   *  | 100M  |                      0 |
+ 2534   *  | 101M  |                      6 |
+ 2535   *  | 102M  |                     25 |
+ 2536   *  | 103M  |                     57 |
+ 2537   *  | 104M  |                    102 |
+ 2538   *  | 105M  |                    159 |
+ 2539   *  | 106M  |                    230 |
+ 2540   *  | 107M  |                    313 |
+ 2541   *  | 108M  |                    409 |
+ 2542   *  | 109M  |                    518 |
+ 2543   *  | 110M  |                    639 |
+ 2544   *  | 111M  |                    774 |
+ 2545   *  | 112M  |                    921 |
+ 2546   *  | 113M  |                   1081 |
+ 2547   *  | 114M  |                   1254 |
+ 2548   *  | 115M  |                   1439 |
+ 2549   *  | 116M  |                   1638 |
+ 2550   *  | 117M  |                   1849 |
+ 2551   *  | 118M  |                   2000 |
+ 2552   *  | 119M  |                   2000 |
+ 2553   *  | 120M  |                   2000 |
+ 2554   *  +-------+------------------------+
+ 2555   */
+ 2556   #define MEMCG_DELAY_PRECISION_SHIFT 20
+ 2557   #define MEMCG_DELAY_SCALING_SHIFT 14
+ 2559  static u64 calculate_overage(unsigned long usage, unsigned long high)
+ 2560  {
+ 2561  	u64 overage;
+ 2562  
+ 2563  	if (usage <= high)
+ 2564  		return 0;
+ 2565  
+ 2566  	/*
+ 2567  	 * Prevent division by 0 in overage calculation by acting as if
+ 2568  	 * it was a threshold of 1 page
+ 2569  	 */
+ 2570  	high = max(high, 1UL);
+ 2571  
+ 2572  	overage = usage - high;
+ 2573  	overage <<= MEMCG_DELAY_PRECISION_SHIFT;
+ 2574  	return div64_u64(overage, high);
+ 2575  }
+ 2611  static unsigned long calculate_high_delay(struct mem_cgroup *memcg,
+ 2612  					  unsigned int nr_pages,
+ 2613  					  u64 max_overage)
+ 2614  {
+ 2615  	unsigned long penalty_jiffies;
+ 2616  
+ 2617  	if (!max_overage)
+ 2618  		return 0;
+ 2619  
+ 2620  	/*
+ 2621  	 * We use overage compared to memory.high to calculate the number of
+ 2622  	 * jiffies to sleep (penalty_jiffies). Ideally this value should be
+ 2623  	 * fairly lenient on small overages, and increasingly harsh when the
+ 2624  	 * memcg in question makes it clear that it has no intention of stopping
+ 2625  	 * its crazy behaviour, so we exponentially increase the delay based on
+ 2626  	 * overage amount.
+ 2627  	 */
+ 2628  	penalty_jiffies = max_overage * max_overage * HZ;
+ 2629  	penalty_jiffies >>= MEMCG_DELAY_PRECISION_SHIFT;
+ 2630  	penalty_jiffies >>= MEMCG_DELAY_SCALING_SHIFT;
+ 2631  
+ 2632  	/*
+ 2633  	 * Factor in the task's own contribution to the overage, such that four
+ 2634  	 * N-sized allocations are throttled approximately the same as one
+ 2635  	 * 4N-sized allocation.
+ 2636  	 *
+ 2637  	 * MEMCG_CHARGE_BATCH pages is nominal, so work out how much smaller or
+ 2638  	 * larger the current charge patch is than that.
+ 2639  	 */
+ 2640  	return penalty_jiffies * nr_pages / MEMCG_CHARGE_BATCH;
+ 2641  }
+ 2648  void mem_cgroup_handle_over_high(gfp_t gfp_mask)
+ 2649  {
+ 2650  	unsigned long penalty_jiffies;
+ 2651  	unsigned long pflags;
+ 2652  	unsigned long nr_reclaimed;
+ 2653  	unsigned int nr_pages = current->memcg_nr_pages_over_high;
+ 2654  	int nr_retries = MAX_RECLAIM_RETRIES;
+ 2655  	struct mem_cgroup *memcg;
+ 2656  	bool in_retry = false;
+ 2657  
+ 2658  	if (likely(!nr_pages))
+ 2659  		return;
+ 2660  
+ 2661  	memcg = get_mem_cgroup_from_mm(current->mm);
+ 2662  	current->memcg_nr_pages_over_high = 0;
+ 2663  
+ 2664  retry_reclaim:
+ 2665  	/*
+ 2666  	 * Bail if the task is already exiting. Unlike memory.max,
+ 2667  	 * memory.high enforcement isn't as strict, and there is no
+ 2668  	 * OOM killer involved, which means the excess could already
+ 2669  	 * be much bigger (and still growing) than it could for
+ 2670  	 * memory.max; the dying task could get stuck in fruitless
+ 2671  	 * reclaim for a long time, which isn't desirable.
+ 2672  	 */
+ 2673  	if (task_is_dying())
+ 2674  		goto out;
+ 2675  
+ 2676  	/*
+ 2677  	 * The allocating task should reclaim at least the batch size, but for
+ 2678  	 * subsequent retries we only want to do what's necessary to prevent oom
+ 2679  	 * or breaching resource isolation.
+ 2680  	 *
+ 2681  	 * This is distinct from memory.max or page allocator behaviour because
+ 2682  	 * memory.high is currently batched, whereas memory.max and the page
+ 2683  	 * allocator run every time an allocation is made.
+ 2684  	 */
+ 2685  	nr_reclaimed = reclaim_high(memcg,
+ 2686  				    in_retry ? SWAP_CLUSTER_MAX : nr_pages,
+ 2687  				    gfp_mask);
+ 2688  
+ 2689  	/*
+ 2690  	 * memory.high is breached and reclaim is unable to keep up. Throttle
+ 2691  	 * allocators proactively to slow down excessive growth.
+ 2692  	 */
+ 2693  	penalty_jiffies = calculate_high_delay(memcg, nr_pages,
+ 2694  					       mem_find_max_overage(memcg));
+ 2695  
+ 2696  	penalty_jiffies += calculate_high_delay(memcg, nr_pages,
+ 2697  						swap_find_max_overage(memcg));
+ 2698  
+ 2699  	/*
+ 2700  	 * Clamp the max delay per usermode return so as to still keep the
+ 2701  	 * application moving forwards and also permit diagnostics, albeit
+ 2702  	 * extremely slowly.
+ 2703  	 */
+ 2704  	penalty_jiffies = min(penalty_jiffies, MEMCG_MAX_HIGH_DELAY_JIFFIES);
+ 2705  
+ 2706  	/*
+ 2707  	 * Don't sleep if the amount of jiffies this memcg owes us is so low
+ 2708  	 * that it's not even worth doing, in an attempt to be nice to those who
+ 2709  	 * go only a small amount over their memory.high value and maybe haven't
+ 2710  	 * been aggressively reclaimed enough yet.
+ 2711  	 */
+ 2712  	if (penalty_jiffies <= HZ / 100)
+ 2713  		goto out;
+ 2714  
+ 2715  	/*
+ 2716  	 * If reclaim is making forward progress but we're still over
+ 2717  	 * memory.high, we want to encourage that rather than doing allocator
+ 2718  	 * throttling.
+ 2719  	 */
+ 2720  	if (nr_reclaimed || nr_retries--) {
+ 2721  		in_retry = true;
+ 2722  		goto retry_reclaim;
+ 2723  	}
+ 2724  
+ 2725  	/*
+ 2726  	 * Reclaim didn't manage to push usage below the limit, slow
+ 2727  	 * this allocating task down.
+ 2728  	 *
+ 2729  	 * If we exit early, we're guaranteed to die (since
+ 2730  	 * schedule_timeout_killable sets TASK_KILLABLE). This means we don't
+ 2731  	 * need to account for any ill-begotten jiffies to pay them off later.
+ 2732  	 */
+ 2733  	psi_memstall_enter(&pflags);
+ 2734  	schedule_timeout_killable(penalty_jiffies);
+ 2735  	psi_memstall_leave(&pflags);
+ 2736  
+ 2737  out:
+ 2738  	css_put(&memcg->css);
+ 2739  }
+ 2314  static bool consume_stock(struct mem_cgroup *memcg, unsigned int nr_pages)
+ 2315  {
+ 2316  	struct memcg_stock_pcp *stock;
+ 2317  	unsigned long flags;
+ 2318  	bool ret = false;
+ 2319  
+ 2320  	if (nr_pages > MEMCG_CHARGE_BATCH)
+ 2321  		return ret;
+ 2322  
+ 2323  	local_lock_irqsave(&memcg_stock.stock_lock, flags);
+ 2324  
+ 2325  	stock = this_cpu_ptr(&memcg_stock);
+ 2326  	if (memcg == READ_ONCE(stock->cached) && stock->nr_pages >= nr_pages) {
+ 2327  		stock->nr_pages -= nr_pages;
+ 2328  		ret = true;
+ 2329  	}
+ 2330  
+ 2331  	local_unlock_irqrestore(&memcg_stock.stock_lock, flags);
+ 2332  
+ 2333  	return ret;
+ 2334  }
+ 2383  static void __refill_stock(struct mem_cgroup *memcg, unsigned int nr_pages)
+ 2384  {
+ 2385  	struct memcg_stock_pcp *stock;
+ 2386  
+ 2387  	stock = this_cpu_ptr(&memcg_stock);
+ 2388  	if (READ_ONCE(stock->cached) != memcg) { /* reset if necessary */
+ 2389  		drain_stock(stock);
+ 2390  		css_get(&memcg->css);
+ 2391  		WRITE_ONCE(stock->cached, memcg);
+ 2392  	}
+ 2393  	stock->nr_pages += nr_pages;
+ 2394  
+ 2395  	if (stock->nr_pages > MEMCG_CHARGE_BATCH)
+ 2396  		drain_stock(stock);
+ 2397  }
+ 2741  static int try_charge_memcg(struct mem_cgroup *memcg, gfp_t gfp_mask,
+ 2742  			unsigned int nr_pages)
+ 2743  {
+ 2744  	unsigned int batch = max(MEMCG_CHARGE_BATCH, nr_pages);
+ 2745  	int nr_retries = MAX_RECLAIM_RETRIES;
+ 2746  	struct mem_cgroup *mem_over_limit;
+ 2747  	struct page_counter *counter;
+ 2748  	unsigned long nr_reclaimed;
+ 2749  	bool passed_oom = false;
+ 2750  	unsigned int reclaim_options = MEMCG_RECLAIM_MAY_SWAP;
+ 2751  	bool drained = false;
+ 2752  	bool raised_max_event = false;
+ 2753  	unsigned long pflags;
+ 2754  
+ 2755  retry:
+ 2785  	if (unlikely(task_in_memcg_oom(current)))
+ 2786  		goto nomem;
+ 2787  
+ 2788  	if (!gfpflags_allow_blocking(gfp_mask))
+ 2789  		goto nomem;
+ 2790  
+ 2791  	memcg_memory_event(mem_over_limit, MEMCG_MAX);
+ 2792  	raised_max_event = true;
+ 2793  
+ 2794  	psi_memstall_enter(&pflags);
+ 2795  	nr_reclaimed = try_to_free_mem_cgroup_pages(mem_over_limit, nr_pages,
+ 2796  						    gfp_mask, reclaim_options);
+ 2797  	psi_memstall_leave(&pflags);
+ 2798  
+ 2799  	if (mem_cgroup_margin(mem_over_limit) >= nr_pages)
+ 2800  		goto retry;
+ 2801  
+ 2802  	if (!drained) {
+ 2803  		drain_all_stock(mem_over_limit);
+ 2804  		drained = true;
+ 2805  		goto retry;
+ 2806  	}
+ 2807  
+ 2808  	if (gfp_mask & __GFP_NORETRY)
+ 2809  		goto nomem;
+ 2810  	/*
+ 2811  	 * Even though the limit is exceeded at this point, reclaim
+ 2812  	 * may have been able to free some pages.  Retry the charge
+ 2813  	 * before killing the task.
+ 2814  	 *
+ 2815  	 * Only for regular pages, though: huge pages are rather
+ 2816  	 * unlikely to succeed so close to the limit, and we fall back
+ 2817  	 * to regular pages anyway in case of failure.
+ 2818  	 */
+ 2819  	if (nr_reclaimed && nr_pages <= (1 << PAGE_ALLOC_COSTLY_ORDER))
+ 2820  		goto retry;
+ 2821  	/*
+ 2822  	 * At task move, charge accounts can be doubly counted. So, it's
+ 2823  	 * better to wait until the end of task_move if something is going on.
+ 2824  	 */
+ 2825  	if (mem_cgroup_wait_acct_move(mem_over_limit))
+ 2826  		goto retry;
+ 2827  
+ 2828  	if (nr_retries--)
+ 2829  		goto retry;
+ 2830  
+ 2831  	if (gfp_mask & __GFP_RETRY_MAYFAIL)
+ 2832  		goto nomem;
+ 2833  
+ 2834  	/* Avoid endless loop for tasks bypassed by the oom killer */
+ 2835  	if (passed_oom && task_is_dying())
+ 2836  		goto nomem;
+ 2837  
+ 2838  	/*
+ 2839  	 * keep retrying as long as the memcg oom killer is able to make
+ 2840  	 * a forward progress or bypass the charge if the oom killer
+ 2841  	 * couldn't make any progress.
+ 2842  	 */
+ 2843  	if (mem_cgroup_oom(mem_over_limit, gfp_mask,
+ 2844  			   get_order(nr_pages * PAGE_SIZE))) {
+ 2845  		passed_oom = true;
+ 2846  		nr_retries = MAX_RECLAIM_RETRIES;
+ 2847  		goto retry;
+ 2848  	}
+ 2849  nomem:
+ 2877  done_restock:
+ 2878  	if (batch > nr_pages)
+ 2879  		refill_stock(memcg, batch - nr_pages);
+ 2880  
+ 2881  	/*
+ 2882  	 * If the hierarchy is above the normal consumption range, schedule
+ 2883  	 * reclaim on returning to userland.  We can perform reclaim here
+ 2884  	 * if __GFP_RECLAIM but let's always punt for simplicity and so that
+ 2885  	 * GFP_KERNEL can consistently be used during reclaim.  @memcg is
+ 2886  	 * not recorded as it most likely matches current's and won't
+ 2887  	 * change in the meantime.  As high limit is checked again before
+ 2888  	 * reclaim, the cost of mismatch is negligible.
+ 2889  	 */
+ 2890  	do {
+ 2891  		bool mem_high, swap_high;
+ 2892  
+ 2893  		mem_high = page_counter_read(&memcg->memory) >
+ 2894  			READ_ONCE(memcg->memory.high);
+ 2895  		swap_high = page_counter_read(&memcg->swap) >
+ 2896  			READ_ONCE(memcg->swap.high);
+ 2897  
+ 2898  		/* Don't bother a random interrupted task */
+ 2899  		if (!in_task()) {
+ 2900  			if (mem_high) {
+ 2901  				schedule_work(&memcg->high_work);
+ 2902  				break;
+ 2903  			}
+ 2904  			continue;
+ 2905  		}
+ 2906  
+ 2907  		if (mem_high || swap_high) {
+ 2908  			/*
+ 2909  			 * The allocating tasks in this cgroup will need to do
+ 2910  			 * reclaim or be throttled to prevent further growth
+ 2911  			 * of the memory or swap footprints.
+ 2912  			 *
+ 2913  			 * Target some best-effort fairness between the tasks,
+ 2914  			 * and distribute reclaim work and delay penalties
+ 2915  			 * based on how much each task is actually allocating.
+ 2916  			 */
+ 2917  			current->memcg_nr_pages_over_high += batch;
+ 2918  			set_notify_resume(current);
+ 2919  			break;
+ 2920  		}
+ 2921  	} while ((memcg = parent_mem_cgroup(memcg)));
+ 2922  
+ 2923  	/*
+ 2924  	 * Reclaim is set up above to be called from the userland
+ 2925  	 * return path. But also attempt synchronous reclaim to avoid
+ 2926  	 * excessive overrun while the task is still inside the
+ 2927  	 * kernel. If this is successful, the return path will see it
+ 2928  	 * when it rechecks the overage and simply bail out.
+ 2929  	 */
+ 2930  	if (current->memcg_nr_pages_over_high > MEMCG_CHARGE_BATCH &&
+ 2931  	    !(current->flags & PF_MEMALLOC) &&
+ 2932  	    gfpflags_allow_blocking(gfp_mask))
+ 2933  		mem_cgroup_handle_over_high(gfp_mask);
+ 2934  	return 0;
+ 2935  }
+
+=== include/linux/memcontrol.h, mm/internal.h, include/linux/resume_user_mode.h (same tag)
+  346:#define MEMCG_CHARGE_BATCH 64U
+  241:#define MAX_RECLAIM_RETRIES 16
+  59:	mem_cgroup_handle_over_high(GFP_KERNEL);
+
+=== mm/filemap.c (same tag): a page wait counts as a memory stall only for workingset folios
+ 1225  static inline int folio_wait_bit_common(struct folio *folio, int bit_nr,
+ 1226  		int state, enum behavior behavior)
+ 1227  {
+ 1228  	wait_queue_head_t *q = folio_waitqueue(folio);
+ 1229  	int unfairness = sysctl_page_lock_unfairness;
+ 1230  	struct wait_page_queue wait_page;
+ 1231  	wait_queue_entry_t *wait = &wait_page.wait;
+ 1232  	bool thrashing = false;
+ 1233  	unsigned long pflags;
+ 1234  	bool in_thrashing;
+ 1235  
+ 1236  	if (bit_nr == PG_locked &&
+ 1237  	    !folio_test_uptodate(folio) && folio_test_workingset(folio)) {
+ 1238  		delayacct_thrashing_start(&in_thrashing);
+ 1239  		psi_memstall_enter(&pflags);
+ 1240  		thrashing = true;
+
+=== kernel/time/timer.c (same tag): timer wheel granularity at HZ=1000
+  104   * HZ 1000 steps
+  105   * Level Offset  Granularity            Range
+  106   *  0      0         1 ms                0 ms -         63 ms
+  107   *  1     64         8 ms               64 ms -        511 ms
+  108   *  2    128        64 ms              512 ms -       4095 ms (512ms - ~4s)
+  109   *  3    192       512 ms             4096 ms -      32767 ms (~4s - ~32s)
+  110   *  4    256      4096 ms (~4s)      32768 ms -     262143 ms (~32s - ~4m)
+  111   *  5    320     32768 ms (~32s)    262144 ms -    2097151 ms (~4m - ~34m)
+
+=== Documentation/admin-guide/cgroup-v2.rst (same tag)
+ 1262    memory.high
+ 1263  	A read-write single value file which exists on non-root
+ 1264  	cgroups.  The default is "max".
+ 1265  
+ 1266  	Memory usage throttle limit.  If a cgroup's usage goes
+ 1267  	over the high boundary, the processes of the cgroup are
+ 1268  	throttled and put under heavy reclaim pressure.
+ 1269  
+ 1270  	Going over the high limit never invokes the OOM killer and
+ 1271  	under extreme conditions the limit may be breached. The high
+ 1272  	limit should be used in scenarios where an external process
+ 1273  	monitors the limited cgroup to alleviate heavy reclaim
+ 1274  	pressure.
+ 1275  
+ 1276    memory.max
+ 1276    memory.max
+ 1277  	A read-write single value file which exists on non-root
+ 1278  	cgroups.  The default is "max".
+ 1279  
+ 1280  	Memory usage hard limit.  This is the main mechanism to limit
+ 1281  	memory usage of a cgroup.  If a cgroup's memory usage reaches
+ 1282  	this limit and can't be reduced, the OOM killer is invoked in
+ 1283  	the cgroup. Under certain circumstances, the usage may go
+ 1284  	over the limit temporarily.
+ 1285  
+ 1286  	In default configuration regular 0-order allocations always
+ 1287  	succeed unless OOM killer chooses current task as a victim.
+ 1288  
+ 1289  	Some kinds of allocations don't invoke the OOM killer.
+ 1290  	Caller could retry them differently, return into userspace
+ 1291  	as -ENOMEM or silently ignore in cases like disk readahead.
+ 1292  
+ 1293    memory.reclaim
+ 1363  	  high
+ 1364  		The number of times processes of the cgroup are
+ 1365  		throttled and routed to perform direct memory reclaim
+ 1366  		because the high memory boundary was exceeded.  For a
+ 1367  		cgroup whose memory usage is capped by the high limit
+ 1368  		rather than global memory pressure, this event's
+ 1369  		occurrences are expected.
+ 1370  
+ 1371  	  max
+ 1372  		The number of times the cgroup's memory usage was
+ 1373  		about to go over the max boundary.  If direct reclaim
+ 1374  		fails to bring it down, the cgroup goes to OOM state.
+
+=== systemd v255 man/systemd.resource-control.xml
+  351:          <para>Specify the memory usage protection of the executed processes in this unit.
+  355:          be reclaimed to avoid invoking the OOM killer in case there is no other reclaimable memory.</para>
+  399:          <para>Specify the throttling limit on memory usage of the executed processes in this unit. Memory usage may go
+  400:          above the limit if unavoidable, but the processes are heavily slowed down and memory is taken away
+  401:          aggressively in such cases. This is the main mechanism to control memory usage of a unit.</para>
+  427:          <para>Specify the absolute limit on memory usage of the executed processes in this unit. If memory usage
+  428:          cannot be contained under the limit, out-of-memory killer is invoked inside the unit. It is recommended to
+  429:          use <varname>MemoryHigh=</varname> as the main control mechanism and use <varname>MemoryMax=</varname> as the
+  455:          <para>Specify the absolute limit on swap usage of the executed processes in this unit.</para>
+  479:          <para>Specify the absolute limit on zswap usage of the processes in this unit. Zswap is a lightweight compressed
+
+=== runc v1.5.2 vendor/github.com/opencontainers/cgroups/fs2/memory.go
+  32:	return r.MemoryReservation != 0 || r.Memory != 0 || r.MemorySwap != 0
+  55:		if err := cgroups.WriteFile(dirPath, "memory.swap.max", swapStr); err != nil {
+  64:		if err := cgroups.WriteFile(dirPath, "memory.max", val); err != nil {
+  71:	if val := numToStr(r.MemoryReservation); val != "" {
+  72:		if err := cgroups.WriteFile(dirPath, "memory.low", val); err != nil {
+
+=== runc v1.5.2 vendor/github.com/opencontainers/cgroups/systemd/v2.go
+  162:				"memory.high":     "MemoryHigh",
+  163:				"memory.low":      "MemoryLow",
+  165:				"memory.max":      "MemoryMax",
+  166:				"memory.swap.max": "MemorySwapMax",
+  223:			newProp("MemoryMax", uint64(r.Memory)))
+  225:	if r.MemoryReservation != 0 {
+  227:			newProp("MemoryLow", uint64(r.MemoryReservation)))
+  236:			newProp("MemorySwapMax", uint64(swap)))
+
+=== moby docker-v29.9.3 daemon/daemon_unix.go getMemoryResources
+   81  func getMemoryResources(config containertypes.Resources) *specs.LinuxMemory {
+   82  	memory := specs.LinuxMemory{}
+   83  
+   84  	if config.Memory > 0 {
+   85  		memory.Limit = &config.Memory
+   86  	}
+   87  
+   88  	if config.MemoryReservation > 0 {
+   89  		memory.Reservation = &config.MemoryReservation
+   90  	}
+   91  
+   92  	if config.MemorySwap > 0 {
+   93  		memory.Swap = &config.MemorySwap
+   94  	}
+   95  
+   96  	if config.MemorySwappiness != nil {
+   97  		swappiness := uint64(*config.MemorySwappiness)
+   98  		memory.Swappiness = &swappiness
+   99  	}
+  100  
+  101  	if config.OomKillDisable != nil {
+  102  		memory.DisableOOMKiller = config.OomKillDisable
+  103  	}
+  104  
+  105  	if memory != (specs.LinuxMemory{}) {
+  106  		return &memory
+  107  	}
+  108  	return nil
+  109  }
+
+=== docker/docs resource_constraints.md
+  85:| `-m` or `--memory=`    | The maximum amount of memory the container can use. If you set this option, the minimum allowed value is `6m` (6 megabytes). That is, you must set the value to at least 6 megabytes.                                                                                                                                                                                                           |
+  88:| `--memory-reservation` | Allows you to specify a soft limit smaller than `--memory` which is activated when Docker detects contention or low memory on the host machine. If you use `--memory-reservation`, it must be set lower than `--memory` for it to take precedence. Because it is a soft limit, it doesn't guarantee that the container doesn't exceed the limit.                                                |
+
+=== kubernetes v1.36.6 pkg/features/kube_features.go, kubelet config defaults and types
+ 1677  	MemoryQoS: {
+ 1678  		{Version: version.MustParse("1.22"), Default: false, PreRelease: featuregate.Alpha},
+ 1679  	},
+  44:	DefaultMemoryThrottlingFactor  = 0.9
+  296:	if obj.MemoryThrottlingFactor == nil {
+  297:		obj.MemoryThrottlingFactor = ptr.To(DefaultMemoryThrottlingFactor)
+  893  	// MemoryThrottlingFactor specifies the factor multiplied by the memory limit or node allocatable memory
+  894  	// when setting the cgroupv2 memory.high value to enforce MemoryQoS.
+  895  	// Decreasing this factor will set lower high limit for container cgroups and put heavier reclaim pressure
+  896  	// while increasing will put less reclaim pressure.
+  897  	// See https://kep.k8s.io/2570 for more details.
+  898  	// Default: 0.9
+  899  	// +featureGate=MemoryQoS
+  900  	// +optional
+  901  	MemoryThrottlingFactor *float64 `json:"memoryThrottlingFactor,omitempty"`
+
+=== kubernetes v1.36.6 pkg/apis/core/v1/defaults.go: an omitted request is set to the limit
+  164  func SetDefaults_Pod(obj *v1.Pod) {
+  165  	// If limits are specified, but requests are not, default requests to limits
+  166  	// This is done here rather than a more specific defaulting pass on v1.ResourceRequirements
+  167  	// because we only want this defaulting semantic to take place on a v1.Pod and not a v1.PodTemplate
+  168  	for i := range obj.Spec.Containers {
+  169  		// set requests to limits if requests are not specified, but limits are
+  170  		if obj.Spec.Containers[i].Resources.Limits != nil {
+  171  			if obj.Spec.Containers[i].Resources.Requests == nil {
+  172  				obj.Spec.Containers[i].Resources.Requests = make(v1.ResourceList)
+  173  			}
+  174  			for key, value := range obj.Spec.Containers[i].Resources.Limits {
+  175  				if _, exists := obj.Spec.Containers[i].Resources.Requests[key]; !exists {
+  176  					obj.Spec.Containers[i].Resources.Requests[key] = value.DeepCopy()
+
+=== kubernetes v1.36.6 pkg/kubelet/kuberuntime/kuberuntime_container_linux.go (MemoryQoS)
+  153  	// Set memory.min and memory.high to enforce MemoryQoS
+  154  	if enforceMemoryQoS {
+  155  		unified := map[string]string{}
+  156  		memoryRequest := container.Resources.Requests.Memory().Value()
+  157  		memoryLimit := container.Resources.Limits.Memory().Value()
+  158  		if memoryRequest != 0 && m.memoryReservationPolicy == kubeletconfiginternal.TieredReservationMemoryReservationPolicy {
+  159  			// Guaranteed pods get memory.min (hard protection).
+  160  			// Burstable pods get memory.low (soft protection).
+  161  			if kubeapiqos.GetPodQOS(pod) == v1.PodQOSGuaranteed {
+  162  				unified[cm.Cgroup2MemoryMin] = strconv.FormatInt(memoryRequest, 10)
+  163  			} else {
+  164  				unified[cm.Cgroup2MemoryLow] = strconv.FormatInt(memoryRequest, 10)
+  165  			}
+  166  		} else {
+  167  			unified[cm.Cgroup2MemoryMin] = "0"
+  168  			unified[cm.Cgroup2MemoryLow] = "0"
+  169  		}
+  170  
+  171  		// Guaranteed pods by their QoS definition requires that memory request equals memory limit and cpu request must equal cpu limit.
+  172  		// Here, we only check from memory perspective. Hence MemoryQoS feature is disabled on those QoS pods by not setting memory.high.
+  173  		if memoryRequest != memoryLimit {
+  174  			// The formula for memory.high for container cgroup is modified in Alpha stage of the feature in K8s v1.27.
+  175  			// It will be set based on formula:
+  176  			// `memory.high=floor[(requests.memory + memory throttling factor * (limits.memory or node allocatable memory - requests.memory))/pageSize] * pageSize`
+  177  			// where default value of memory throttling factor is set to 0.9
+  178  			// More info: https://git.k8s.io/enhancements/keps/sig-node/2570-memory-qos
+  179  			memoryHigh := int64(0)
+  180  			if memoryLimit != 0 {
+  181  				memoryHigh = int64(math.Floor(
+  182  					float64(memoryRequest)+
+  183  						(float64(memoryLimit)-float64(memoryRequest))*float64(m.memoryThrottlingFactor))/float64(defaultPageSize)) * defaultPageSize
+  184  			} else {
+  185  				allocatable := m.getNodeAllocatable()
+  186  				allocatableMemory, ok := allocatable[v1.ResourceMemory]
+  187  				if ok && allocatableMemory.Value() > 0 {
+  188  					memoryHigh = int64(math.Floor(
+  189  						float64(memoryRequest)+
+  190  							(float64(allocatableMemory.Value())-float64(memoryRequest))*float64(m.memoryThrottlingFactor))/float64(defaultPageSize)) * defaultPageSize
+  191  				}
+  192  			}
+  193  			if memoryHigh != 0 && memoryHigh > memoryRequest {
+  194  				unified[cm.Cgroup2MemoryHigh] = strconv.FormatInt(memoryHigh, 10)
+  195  			}
+  196  		}
+  197  		if len(unified) > 0 {
+
+=== kubernetes v1.37.2 pkg/features/kube_features.go, kubelet config defaults and types
+ 1845  	MemoryQoS: {
+ 1846  		{Version: version.MustParse("1.22"), Default: false, PreRelease: featuregate.Alpha},
+ 1847  		{Version: version.MustParse("1.37"), Default: true, PreRelease: featuregate.Beta},
+ 1848  	},
+  (no line matches: MemoryThrottlingFactor)
+  899  	// MemoryThrottlingFactor specifies the factor multiplied by the memory limit or node allocatable memory
+  900  	// when setting the cgroupv2 memory.high value to enforce MemoryQoS.
+  901  	// Decreasing this factor will set lower high limit for container cgroups and put heavier reclaim pressure
+  902  	// while increasing will put less reclaim pressure. If nil, memory.high is not set.
+  903  	// See https://kep.k8s.io/2570 for more details.
+  904  	// Default: nil
+  905  	// +featureGate=MemoryQoS
+  906  	// +optional
+  907  	MemoryThrottlingFactor *float64 `json:"memoryThrottlingFactor,omitempty"`
+
+=== kubernetes v1.37.2 pkg/apis/core/v1/defaults.go: an omitted request is set to the limit
+  164  func SetDefaults_Pod(obj *v1.Pod) {
+  165  	// Enforced on Pod but not on PodSpec. For historical reasons, PodTemplate is not defaulted this way.
+  166  	if obj.Spec.TerminationGracePeriodSeconds != nil && *obj.Spec.TerminationGracePeriodSeconds < 0 {
+  167  		obj.Spec.TerminationGracePeriodSeconds = ptr.To[int64](1)
+  168  	}
+  169  
+  170  	// If limits are specified, but requests are not, default requests to limits
+  171  	// This is done here rather than a more specific defaulting pass on v1.ResourceRequirements
+  172  	// because we only want this defaulting semantic to take place on a v1.Pod and not a v1.PodTemplate
+  173  	for i := range obj.Spec.Containers {
+  174  		// set requests to limits if requests are not specified, but limits are
+  175  		if obj.Spec.Containers[i].Resources.Limits != nil {
+  176  			if obj.Spec.Containers[i].Resources.Requests == nil {
+  177  				obj.Spec.Containers[i].Resources.Requests = make(v1.ResourceList)
+  178  			}
+  179  			for key, value := range obj.Spec.Containers[i].Resources.Limits {
+  180  				if _, exists := obj.Spec.Containers[i].Resources.Requests[key]; !exists {
+  181  					obj.Spec.Containers[i].Resources.Requests[key] = value.DeepCopy()
+
+=== kubernetes v1.37.2 pkg/kubelet/kuberuntime/kuberuntime_container_linux.go (MemoryQoS)
+  202  	// Set memory.min and memory.high to enforce MemoryQoS
+  203  	if enforceMemoryQoS {
+  204  		unified := map[string]string{}
+  205  		memoryRequest := container.Resources.Requests.Memory().Value()
+  206  		memoryLimitSpec := container.Resources.Limits.Memory().Value()
+  207  		if memoryRequest != 0 && m.memoryReservationPolicy == kubeletconfiginternal.TieredReservationMemoryReservationPolicy {
+  208  			// Guaranteed pods get memory.min (hard protection).
+  209  			// Burstable pods get memory.low (soft protection).
+  210  			if kubeapiqos.GetPodQOS(pod) == v1.PodQOSGuaranteed {
+  211  				unified[cm.Cgroup2MemoryMin] = strconv.FormatInt(memoryRequest, 10)
+  212  			} else {
+  213  				unified[cm.Cgroup2MemoryLow] = strconv.FormatInt(memoryRequest, 10)
+  214  			}
+  215  		} else {
+  216  			unified[cm.Cgroup2MemoryMin] = "0"
+  217  			unified[cm.Cgroup2MemoryLow] = "0"
+  218  		}
+  219  		// When PodLevelResources is active and the container has no memory limit,
+  220  		// skip container-level memory.high — the pod cgroup's memory.high handles
+  221  		// throttling hierarchically (kernel walks ancestors in try_charge_memcg).
+  222  		skipContainerMemoryHigh := memoryLimitSpec == 0 &&
+  223  			utilfeature.DefaultFeatureGate.Enabled(kubefeatures.PodLevelResources) &&
+  224  			resourcehelper.IsPodLevelResourcesSet(pod) &&
+  225  			!pod.Spec.Resources.Limits.Memory().IsZero()
+  226  		if m.memoryThrottlingFactor != nil && !skipContainerMemoryHigh && (memoryRequest != memoryLimitSpec || memoryRequest == 0) {
+  227  			memoryLimitVal := memoryLimitSpec
+  228  			if _, exists := draAllocations[v1.ResourceMemory]; exists && memoryLimit != nil && memoryLimitSpec != 0 {
+  229  				// memoryLimit computed above should include DRA already.
+  230  				// We use the DRA-inflated memory limit to calculate the throttling threshold (memory.high)
+  231  				// so that Burstable pods are not throttled early at their standard Spec limit.
+  232  				// However, the QoS classification remains strictly based on the pure spec requests and limits
+  233  				// and does not consider DRA. With DRA node allocatable claims, we continue to
+  234  				// 1. Skip setting memory.high for guaranteed pods.
+  235  				// 2. Set memory.high based on node memory capacity for besteffort pods.
+  236  				memoryLimitVal = memoryLimit.Value()
+  237  			}
+  238  			// The formula for memory.high for container cgroup is modified in Alpha stage of the feature in K8s v1.27.
+  239  			// It will be set based on formula:
+  240  			// `memory.high=floor[(requests.memory + memory throttling factor * (limits.memory or node allocatable memory - requests.memory))/pageSize] * pageSize`
+  241  			// More info: https://git.k8s.io/enhancements/keps/sig-node/2570-memory-qos
+  242  			memoryHigh := int64(0)
+  243  			if memoryLimitVal != 0 {
+  244  				memoryHigh = int64(math.Floor(
+  245  					float64(memoryRequest)+
+  246  						(float64(memoryLimitVal)-float64(memoryRequest))*float64(*m.memoryThrottlingFactor))/float64(defaultPageSize)) * defaultPageSize
+  247  			} else {
+  248  				allocatable := m.getNodeAllocatable()
+  249  				allocatableMemory, ok := allocatable[v1.ResourceMemory]
+  250  				if ok && allocatableMemory.Value() > 0 {
+  251  					memoryHigh = int64(math.Floor(
+  252  						float64(memoryRequest)+
+  253  							(float64(allocatableMemory.Value())-float64(memoryRequest))*(*m.memoryThrottlingFactor))/float64(defaultPageSize)) * defaultPageSize
+  254  				}
+  255  			}
+  256  			if memoryHigh != 0 && memoryHigh > memoryRequest {
+  257  				unified[cm.Cgroup2MemoryHigh] = strconv.FormatInt(memoryHigh, 10)
+  258  			}
+  259  		}
+  260  		if len(unified) > 0 {
+
+=== KEP-2570 kep.yaml and README.md (kubernetes/enhancements 92eb8a18eb831a21b610dd86053ecab7a663ec46)
+  18:status: implementable
+  22:stage: beta
+  23:latest-milestone: "v1.38"
+  25:  alpha: "v1.27"
+  26:  beta: "v1.37"
+  83:Targeting Beta in v1.37. `MemoryQoS` feature gate is enabled by default. Rollback cleanup is now fully implemented. Cgroup v2 memory knobs (`memory.min`, `memory.low`, `memory.high`) are properly cleared when the MemoryQoS feature gate is disabled. Node e2e tests cover memory protection, throttling, and rollback cleanup. Benchmark testing validates memory.high throttle behavior, tiered memory protection, and rollback safety. See [Beta v1.37](#beta-v137) for details.
+  87:v1.36 shipped as Alpha v3 rather than Beta based on PRR feedback:
+  109:it doesn't progress further and stays stuck indefinitely. Upon investigating further, it was observed that when memory usage 
+  376:**Status:** Beta graduation criteria met. `MemoryQoS` feature gate is enabled by default. Rollback cleanup is fully implemented. Benchmark testing validates node stability under sustained memory pressure.
+  380:- `memoryThrottlingFactor` default changed from `0.9` to `nil`. When `nil`, kubelet does not set `memory.high` for any containers. Operators opt into `memory.high` throttling by explicitly setting `memoryThrottlingFactor` to a value in (0, 1.0] (e.g., `0.9`). This ensures no behavior change for existing workloads on upgrade to v1.37.
+  789:In Beta (v1.37), the `MemoryQoS` feature gate is enabled by default. No explicit opt-in is required. The feature uses two KubeletConfiguration fields:
+  1190:- 2026/06/01: Beta updates for v1.37: `MemoryQoS` feature gate enabled by default, `memoryThrottlingFactor` default changed to `nil`, rollback cleanup fully implemented (`memory.min`/`memory.low` cleared at kubelet startup, `memory.high` cleared on container creation/restart/InPlacePodResize), rollback e2e test re-enabled

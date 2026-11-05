@@ -1,0 +1,90 @@
+{
+ "current": 20480,
+ "events": {
+  "high": 4111,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 4111,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 74.36,
+   "avg300": 20.65,
+   "avg60": 62.38,
+   "total": 74235834.0
+  },
+  "some": {
+   "avg10": 78.37,
+   "avg300": 21.44,
+   "avg60": 64.41,
+   "total": 77632111.0
+  }
+ },
+ "kernel_log": [
+  "2026-11-05T11:04:14.639044+00:00 testhost kernel: oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=ddmemhigh-20261105T110326Z.scope,mems_allowed=0,oom_memcg=/ddmemhigh.slice/ddmemhigh-20261105T110326Z.scope/anon-over-max-r1,task_memcg=/ddmemhigh.slice/ddmemhigh-20261105T110326Z.scope/anon-over-max-r1,task=python3,pid=132080,uid=0",
+  "2026-11-05T11:04:14.639082+00:00 testhost kernel: Memory cgroup out of memory: Killed process 132080 (python3) total-vm:276676kB, anon-rss:261504kB, file-rss:7040kB, shmem-rss:0kB, UID:0 pgtables:580kB oom_score_adj:0"
+ ],
+ "peak": 256520192,
+ "pressure": {
+  "full": {
+   "avg10": 97.74,
+   "avg300": 13.78,
+   "avg60": 51.13,
+   "total": 44250358.0
+  },
+  "some": {
+   "avg10": 97.74,
+   "avg300": 13.78,
+   "avg60": 51.13,
+   "total": 44250358.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 15907,
+  "low": 0,
+  "max": 36,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "b478544ad5c47180",
+ "stat": {
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_writeback": 0,
+  "kernel": 20480,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 62586,
+  "pgmajfault": 0,
+  "pgscan": 0,
+  "pgscan_direct": 0,
+  "pgsteal": 0,
+  "pgsteal_direct": 0,
+  "shmem": 0,
+  "slab": 13120,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 0
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:05:00Z",
+ "wall_ns": 44622122049
+}

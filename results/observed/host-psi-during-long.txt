@@ -1,0 +1,17 @@
+# 2026-11-05T12:15:57Z during anon-over-both-long-r1
+$ cat /proc/pressure/memory
+some avg10=96.53 avg60=93.84 avg300=84.07 total=2563669403
+full avg10=95.09 avg60=92.29 avg300=82.29 total=2404906138
+$ cat <run cgroup>/memory.pressure
+some avg10=99.00 avg60=95.30 avg300=48.74 total=198636978
+full avg10=99.00 avg60=95.30 avg300=48.74 total=198636978
+$ cat <run cgroup>/memory.current; wc -l < <run cgroup>/cgroup.procs
+254967808
+1
+$ cat /proc/loadavg
+1.17 1.70 1.82 2/339 166918
+$ ps -eo stat= | sort | uniq -c
+      1 D
+     78 I
+      2 R
+     92 S

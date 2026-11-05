@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 3309766,
+  "usage_usec": 3514241,
+  "user_usec": 204475
+ },
+ "current": 286720,
+ "events": {
+  "high": 9683,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 9683,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": true,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 44.82,
+   "avg300": 75.9,
+   "avg60": 55.42,
+   "total": 2216896102.0
+  },
+  "some": {
+   "avg10": 45.89,
+   "avg300": 77.93,
+   "avg60": 56.67,
+   "total": 2372199907.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 2593398784,
+   "rios": 21416,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 77.66,
+   "avg300": 6.68,
+   "avg60": 27.89,
+   "total": 21332826.0
+  },
+  "some": {
+   "avg10": 77.66,
+   "avg300": 6.68,
+   "avg60": 27.89,
+   "total": 21332826.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 242311168,
+ "pressure": {
+  "full": {
+   "avg10": 49.69,
+   "avg300": 4.05,
+   "avg60": 17.08,
+   "total": 12852468.0
+  },
+  "some": {
+   "avg10": 49.69,
+   "avg300": 4.05,
+   "avg60": 17.08,
+   "total": 12852468.0
+  }
+ },
+ "returncodes": [
+  -9
+ ],
+ "scope_events_after": {
+  "high": 566543,
+  "low": 0,
+  "max": 139421,
+  "oom": 3,
+  "oom_group_kill": 0,
+  "oom_kill": 3
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 262144,
+  "anon": 0,
+  "file": 262144,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 24576,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 80009,
+  "pgmajfault": 20246,
+  "pgscan": 761522,
+  "pgscan_direct": 761522,
+  "pgsteal": 633090,
+  "pgsteal_direct": 633090,
+  "shmem": 0,
+  "slab": 16800,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 631686
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T12:12:18Z",
+ "wall_ns": 25096595555
+}

@@ -1,0 +1,90 @@
+{
+ "current": 8192,
+ "events": {
+  "high": 18647,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 18647,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 44.34,
+   "avg300": 25.41,
+   "avg60": 34.98,
+   "total": 255604610.0
+  },
+  "some": {
+   "avg10": 57.09,
+   "avg300": 29.6,
+   "avg60": 44.16,
+   "total": 281232052.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 249491456,
+ "pressure": {
+  "full": {
+   "avg10": 97.08,
+   "avg300": 12.55,
+   "avg60": 47.68,
+   "total": 40695494.0
+  },
+  "some": {
+   "avg10": 97.08,
+   "avg300": 12.55,
+   "avg60": 47.68,
+   "total": 40695494.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 89332,
+  "low": 0,
+  "max": 0,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "stamp": "d68f491e8f2c5069",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 0,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 0,
+  "kernel": 8192,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 60886,
+  "pgmajfault": 0,
+  "pgscan": 0,
+  "pgscan_direct": 0,
+  "pgsteal": 0,
+  "pgsteal_direct": 0,
+  "shmem": 0,
+  "slab": 472,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 0
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:16:55Z",
+ "wall_ns": 41220327682
+}

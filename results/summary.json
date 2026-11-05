@@ -1,0 +1,6880 @@
+{
+ "generated_utc": "2026-11-05T13:22:31Z",
+ "commits": {
+  "639c851733d67eac": "8b9a71b5b622",
+  "0ff572e752011cb4": "1358886f5e74"
+ },
+ "configs": [
+  {
+   "batch": "runs",
+   "config": "anon-fit-both",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 154.58,
+   "ops": 945,
+   "churn_ops": 17,
+   "churn_p50_ms": 6215.903701,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.9,
+   "lat_p50_ms": 0.268189,
+   "lat_p99_ms": 6207.880235,
+   "lat_max_ms": 6239.814208,
+   "lat_p99_last_tenth_ms": 6239.814208,
+   "unfinished_op_s": 1.1,
+   "events_high": 31413,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 153.55,
+   "psi_mem_full_s": 153.55,
+   "psi_mem_some_share": 0.9934730109000718,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.75,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.74
+  },
+  {
+   "batch": "runs",
+   "config": "anon-fit-high-owncode",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 24.46,
+   "ops": 894,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 223.5,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "lat_p50_ms": 0.23271,
+   "lat_p99_ms": 0.804535,
+   "lat_max_ms": 1793.972254,
+   "lat_p99_last_tenth_ms": 1793.972254,
+   "unfinished_op_s": 9.6,
+   "events_high": 9436,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 11.72,
+   "psi_mem_full_s": 11.72,
+   "psi_mem_some_share": 0.48722316865417375,
+   "psi_io_some_s": 20.5,
+   "cpu_s": 3.31,
+   "pgsteal": 617388,
+   "refault_file": 616790,
+   "disk_read_mb": 2532.5,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-fit-high-populate",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 41.24,
+   "ops": 1128,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.757816,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "lat_p50_ms": 0.212448,
+   "lat_p99_ms": 191.907013,
+   "lat_max_ms": 195.984919,
+   "lat_p99_last_tenth_ms": 192.073379,
+   "unfinished_op_s": 1.1,
+   "events_high": 7664,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 40.63,
+   "psi_mem_full_s": 40.63,
+   "psi_mem_some_share": 0.9831295843520783,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.58,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-fit-high",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 155.1,
+   "ops": 945,
+   "churn_ops": 17,
+   "churn_p50_ms": 6215.765715,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "lat_p50_ms": 0.22195,
+   "lat_p99_ms": 6207.832652,
+   "lat_max_ms": 6239.829222,
+   "lat_p99_last_tenth_ms": 6239.829222,
+   "unfinished_op_s": 5.5,
+   "events_high": 32519,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 154.07,
+   "psi_mem_full_s": 154.07,
+   "psi_mem_some_share": 0.9940683430045133,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.73,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.94
+  },
+  {
+   "batch": "runs",
+   "config": "anon-fit-max",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 0.47,
+   "ops": 1128,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.27747,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "lat_p50_ms": 0.242339,
+   "lat_p99_ms": 0.578848,
+   "lat_max_ms": 1.003701,
+   "lat_p99_last_tenth_ms": 0.377833,
+   "unfinished_op_s": 0.1,
+   "events_high": 0,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_share": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.43,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-fit-none",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 0.45,
+   "ops": 1128,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.25735,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.8,
+   "lat_p50_ms": 0.224671,
+   "lat_p99_ms": 0.59959,
+   "lat_max_ms": 0.910008,
+   "lat_p99_last_tenth_ms": 0.359272,
+   "unfinished_op_s": 0.1,
+   "events_high": 0,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_share": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.41,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-4p-high",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 154.69,
+   "ops": 894,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 58.8,
+   "peak_mib": 250.5,
+   "current_last_mib": 249.6,
+   "lat_p50_ms": 0.255653,
+   "lat_p99_ms": 22775.964346,
+   "lat_max_ms": 28327.720938,
+   "lat_p99_last_tenth_ms": 28327.720938,
+   "unfinished_op_s": 0.7,
+   "events_high": 38195,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 153.62,
+   "psi_mem_full_s": 153.41,
+   "psi_mem_some_share": 0.9933557002828762,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.93,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 39.43
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-both-long",
+   "reps": 1,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "oom_kill"
+   ],
+   "kill_after_s": [
+    1747.69
+   ],
+   "wall_s": 1747.79,
+   "ops": 996,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 249.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 256.0,
+   "lat_p50_ms": 0.230998,
+   "lat_p99_ms": 44543.799685,
+   "lat_max_ms": 53183.744023,
+   "lat_p99_last_tenth_ms": 53183.744023,
+   "unfinished_op_s": 0.1,
+   "events_high": 83109,
+   "events_max": 35,
+   "oom_kills": 1,
+   "psi_mem_some_s": 1742.45,
+   "psi_mem_full_s": 1742.45,
+   "psi_mem_some_share": 0.9969447130376076,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 1.19,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 8.74
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-both-owncode",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 25.1,
+   "ops": 893,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 223.2,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "lat_p50_ms": 0.24118,
+   "lat_p99_ms": 0.766705,
+   "lat_max_ms": 2074.495725,
+   "lat_p99_last_tenth_ms": 2074.495725,
+   "unfinished_op_s": 15.3,
+   "events_high": 9589,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 12.85,
+   "psi_mem_full_s": 12.85,
+   "psi_mem_some_share": 0.5119521912350598,
+   "psi_io_some_s": 21.33,
+   "cpu_s": 3.51,
+   "pgsteal": 633766,
+   "refault_file": 632306,
+   "disk_read_mb": 2595.9,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-both",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 155.07,
+   "ops": 940,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 235.0,
+   "peak_mib": 242.2,
+   "current_last_mib": 242.0,
+   "lat_p50_ms": 0.249913,
+   "lat_p99_ms": 6999.854102,
+   "lat_max_ms": 10593.931018,
+   "lat_p99_last_tenth_ms": 10593.931018,
+   "unfinished_op_s": 7.4,
+   "events_high": 29086,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 154.11,
+   "psi_mem_full_s": 154.11,
+   "psi_mem_some_share": 0.9938092474366417,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.69,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 26.89
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-high",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 155.11,
+   "ops": 940,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 235.0,
+   "peak_mib": 242.4,
+   "current_last_mib": 242.0,
+   "lat_p50_ms": 0.217936,
+   "lat_p99_ms": 7119.707508,
+   "lat_max_ms": 10736.009952,
+   "lat_p99_last_tenth_ms": 10736.009952,
+   "unfinished_op_s": 9.4,
+   "events_high": 24187,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 154.18,
+   "psi_mem_full_s": 154.18,
+   "psi_mem_some_share": 0.9942628762972991,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.6,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 26.62
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-max-owncode-fastdisk",
+   "reps": 1,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap"
+   ],
+   "kill_after_s": [
+    null
+   ],
+   "wall_s": 25.08,
+   "ops": 994,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 248.5,
+   "peak_mib": 256.0,
+   "current_last_mib": 256.0,
+   "lat_p50_ms": 0.233121,
+   "lat_p99_ms": 0.700107,
+   "lat_max_ms": 71.408117,
+   "lat_p99_last_tenth_ms": 71.408117,
+   "unfinished_op_s": 24.7,
+   "events_high": 0,
+   "events_max": 79480,
+   "oom_kills": 0,
+   "psi_mem_some_s": 6.23,
+   "psi_mem_full_s": 6.23,
+   "psi_mem_some_share": 0.2484051036682616,
+   "psi_io_some_s": 13.56,
+   "cpu_s": 11.11,
+   "pgsteal": 2559211,
+   "refault_file": 2557751,
+   "disk_read_mb": 10482.7,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-max-owncode",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 25.09,
+   "ops": 995,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 248.8,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "lat_p50_ms": 0.252002,
+   "lat_p99_ms": 0.69407,
+   "lat_max_ms": 2794.384442,
+   "lat_p99_last_tenth_ms": 2794.384442,
+   "unfinished_op_s": 20.8,
+   "events_high": 0,
+   "events_max": 20018,
+   "oom_kills": 0,
+   "psi_mem_some_s": 2.03,
+   "psi_mem_full_s": 2.03,
+   "psi_mem_some_share": 0.08087649402390437,
+   "psi_io_some_s": 21.4,
+   "cpu_s": 3.44,
+   "pgsteal": 631217,
+   "refault_file": 629757,
+   "disk_read_mb": 2585.6,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-max",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "oom_kill",
+    "oom_kill",
+    "oom_kill"
+   ],
+   "kill_after_s": [
+    0.39,
+    0.3,
+    0.28
+   ],
+   "wall_s": 0.39,
+   "ops": 996,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 249.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 211.4,
+   "lat_p50_ms": 0.209799,
+   "lat_p99_ms": 0.429569,
+   "lat_max_ms": 1.200613,
+   "lat_p99_last_tenth_ms": 0.338402,
+   "unfinished_op_s": 0.1,
+   "events_high": 0,
+   "events_max": 35,
+   "oom_kills": 3,
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_share": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.35,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "anon-over-none",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 0.63,
+   "ops": 1480,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.302261,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.4,
+   "current_last_mib": 326.9,
+   "lat_p50_ms": 0.235646,
+   "lat_p99_ms": 0.638661,
+   "lat_max_ms": 1.260538,
+   "lat_p99_last_tenth_ms": 0.452241,
+   "unfinished_op_s": 0.1,
+   "events_high": 0,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_share": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.57,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "file-over-both",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 3.41,
+   "ops": 1480,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.081483,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 229.7,
+   "lat_p50_ms": 0.269113,
+   "lat_p99_ms": 87.301364,
+   "lat_max_ms": 96.373404,
+   "lat_p99_last_tenth_ms": 1.390972,
+   "unfinished_op_s": 0.1,
+   "events_high": 423,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_share": 0.008771929824561403,
+   "psi_io_some_s": 2.88,
+   "cpu_s": 0.49,
+   "pgsteal": 28544,
+   "refault_file": 3648,
+   "disk_read_mb": 350.7,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "file-over-high",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 3.4,
+   "ops": 1480,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.08841,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 230.4,
+   "lat_p50_ms": 0.270467,
+   "lat_p99_ms": 87.300603,
+   "lat_max_ms": 91.961995,
+   "lat_p99_last_tenth_ms": 2.130956,
+   "unfinished_op_s": 0.1,
+   "events_high": 420,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_share": 0.008823529411764706,
+   "psi_io_some_s": 2.88,
+   "cpu_s": 0.47,
+   "pgsteal": 28544,
+   "refault_file": 3648,
+   "disk_read_mb": 350.7,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "file-over-max",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 3.35,
+   "ops": 1480,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.079912,
+   "held_end_mib": 320.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "lat_p50_ms": 0.273403,
+   "lat_p99_ms": 84.494171,
+   "lat_max_ms": 91.178576,
+   "lat_p99_last_tenth_ms": 1.337077,
+   "unfinished_op_s": 0.1,
+   "events_high": 0,
+   "events_max": 324,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.02,
+   "psi_mem_full_s": 0.02,
+   "psi_mem_some_share": 0.005970149253731343,
+   "psi_io_some_s": 2.78,
+   "cpu_s": 0.51,
+   "pgsteal": 20736,
+   "refault_file": 2432,
+   "disk_read_mb": 345.8,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "runs",
+   "config": "file-over-none",
+   "reps": 3,
+   "commit": "1358886f5e74",
+   "outcomes": [
+    "done",
+    "done",
+    "done"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 3.22,
+   "ops": 1480,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.071472,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.7,
+   "current_last_mib": 327.4,
+   "lat_p50_ms": 0.241716,
+   "lat_p99_ms": 86.087841,
+   "lat_max_ms": 91.665918,
+   "lat_p99_last_tenth_ms": 0.130056,
+   "unfinished_op_s": 0.1,
+   "events_high": 0,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_share": 0.0,
+   "psi_io_some_s": 2.74,
+   "cpu_s": 0.43,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 335.5,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "clamp",
+   "config": "anon-clamp-high",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 45.05,
+   "ops": 1210,
+   "churn_ops": 10,
+   "churn_p50_ms": 4095.821951,
+   "held_end_mib": 300.0,
+   "peak_mib": 307.4,
+   "current_last_mib": 307.2,
+   "lat_p50_ms": 0.26215,
+   "lat_p99_ms": 0.924849,
+   "lat_max_ms": 4096.090022,
+   "lat_p99_last_tenth_ms": 4095.907258,
+   "unfinished_op_s": 3.7,
+   "events_high": 374,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 44.39,
+   "psi_mem_full_s": 44.39,
+   "psi_mem_some_share": 0.9853496115427304,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.5,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null
+  },
+  {
+   "batch": "diag",
+   "config": "diag-fit-high-cpu2-1s",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "done",
+    "done",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 120.09,
+   "ops": 1128,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.841023,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.3,
+   "current_last_mib": 239.0,
+   "lat_p50_ms": 0.275607,
+   "lat_p99_ms": 2399.875414,
+   "lat_max_ms": 6239.870882,
+   "lat_p99_last_tenth_ms": 6239.792517,
+   "unfinished_op_s": 1.2,
+   "events_high": 22385,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 119.33,
+   "psi_mem_full_s": 119.33,
+   "psi_mem_some_share": 0.9936714131068365,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.73,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.37
+  },
+  {
+   "batch": "diag",
+   "config": "diag-over-both-cpu2-1s",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 124.29,
+   "ops": 949,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 237.2,
+   "peak_mib": 244.4,
+   "current_last_mib": 244.4,
+   "lat_p50_ms": 0.266485,
+   "lat_p99_ms": 3263.802739,
+   "lat_max_ms": 13231.855614,
+   "lat_p99_last_tenth_ms": 13231.855614,
+   "unfinished_op_s": 0.1,
+   "events_high": 19495,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 123.69,
+   "psi_mem_full_s": 123.69,
+   "psi_mem_some_share": 0.9951725802558532,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.61,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 37.18
+  },
+  {
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-100ms",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 125.04,
+   "ops": 937,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 234.2,
+   "peak_mib": 241.8,
+   "current_last_mib": 241.3,
+   "lat_p50_ms": 0.221973,
+   "lat_p99_ms": 6143.825265,
+   "lat_max_ms": 9599.800285,
+   "lat_p99_last_tenth_ms": 9599.800285,
+   "unfinished_op_s": 9.2,
+   "events_high": 20889,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 124.21,
+   "psi_mem_full_s": 124.21,
+   "psi_mem_some_share": 0.9936739269698912,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.55,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 30.82
+  },
+  {
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-1s",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 125.15,
+   "ops": 971,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 242.8,
+   "peak_mib": 249.9,
+   "current_last_mib": 249.7,
+   "lat_p50_ms": 0.232327,
+   "lat_p99_ms": 2967.768543,
+   "lat_max_ms": 24567.813041,
+   "lat_p99_last_tenth_ms": 24567.813041,
+   "unfinished_op_s": 6.8,
+   "events_high": 6286,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 124.65,
+   "psi_mem_full_s": 124.65,
+   "psi_mem_some_share": 0.9960047942469037,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.47,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 40.23
+  },
+  {
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-100ms",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 125.03,
+   "ops": 973,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 243.2,
+   "peak_mib": 250.7,
+   "current_last_mib": 250.4,
+   "lat_p50_ms": 0.238259,
+   "lat_p99_ms": 3199.771311,
+   "lat_max_ms": 14015.651403,
+   "lat_p99_last_tenth_ms": 14015.651403,
+   "unfinished_op_s": 17.5,
+   "events_high": 8853,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 124.17,
+   "psi_mem_full_s": 124.17,
+   "psi_mem_some_share": 0.994001439654483,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.49,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 107.09
+  },
+  {
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-1s",
+   "reps": 3,
+   "commit": "8b9a71b5b622",
+   "outcomes": [
+    "cap",
+    "cap",
+    "cap"
+   ],
+   "kill_after_s": [
+    null,
+    null,
+    null
+   ],
+   "wall_s": 125.16,
+   "ops": 972,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "held_end_mib": 243.0,
+   "peak_mib": 250.5,
+   "current_last_mib": 250.0,
+   "lat_p50_ms": 0.216007,
+   "lat_p99_ms": 2103.816091,
+   "lat_max_ms": 20007.880297,
+   "lat_p99_last_tenth_ms": 20007.880297,
+   "unfinished_op_s": 12.6,
+   "events_high": 16979,
+   "events_max": 0,
+   "oom_kills": 0,
+   "psi_mem_some_s": 124.64,
+   "psi_mem_full_s": 124.64,
+   "psi_mem_some_share": 0.995845317992969,
+   "psi_io_some_s": 0.0,
+   "cpu_s": 0.57,
+   "pgsteal": 0,
+   "refault_file": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 72.27
+  }
+ ],
+ "runs": [
+  {
+   "run": "anon-fit-both-r1",
+   "batch": "runs",
+   "config": "anon-fit-both",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:28:43Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 154.69,
+   "kill_after_s": null,
+   "ops": 943,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.7,
+   "churn_ops": 15,
+   "churn_p50_ms": 6223.817936,
+   "lat_ms": {
+    "p50": 0.27645,
+    "p99": 6207.880235,
+    "max": 6239.814208,
+    "p99_last_tenth": 6239.814208
+   },
+   "sum_op_s": 153.4,
+   "unfinished_op_s": 1.1,
+   "ops_with_high_events": 51,
+   "high_events_per_17": 2133.1,
+   "events": {
+    "high": 36620,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 153.72,
+   "psi_mem_full_s": 153.72,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.75,
+    "user_usec": 0.3,
+    "system_usec": 0.46
+   },
+   "stat_last": {
+    "anon": 249946112,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": -1.53,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1526
+    ],
+    [
+     "0",
+     17
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-both-r2",
+   "batch": "runs",
+   "config": "anon-fit-both",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:44:32Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 153.21,
+   "kill_after_s": null,
+   "ops": 946,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.9,
+   "churn_ops": 18,
+   "churn_p50_ms": 6207.906143,
+   "lat_ms": {
+    "p50": 0.268189,
+    "p99": 6207.795255,
+    "max": 6239.37413,
+    "p99_last_tenth": 6239.37413
+   },
+   "sum_op_s": 151.91,
+   "unfinished_op_s": 1.1,
+   "ops_with_high_events": 54,
+   "high_events_per_17": 1763.7,
+   "events": {
+    "high": 30342,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 152.21,
+   "psi_mem_full_s": 152.21,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.74,
+    "user_usec": 0.3,
+    "system_usec": 0.44
+   },
+   "stat_last": {
+    "anon": 249937920,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.87,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1503
+    ],
+    [
+     "0",
+     24
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-both-r3",
+   "batch": "runs",
+   "config": "anon-fit-both",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:59:53Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 154.58,
+   "kill_after_s": null,
+   "ops": 945,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 17,
+   "churn_p50_ms": 6215.903701,
+   "lat_ms": {
+    "p50": 0.247457,
+    "p99": 6215.850018,
+    "max": 6239.833282,
+    "p99_last_tenth": 6239.833282
+   },
+   "sum_op_s": 153.25,
+   "unfinished_op_s": 1.1,
+   "ops_with_high_events": 53,
+   "high_events_per_17": 1826.8,
+   "events": {
+    "high": 31413,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 153.55,
+   "psi_mem_full_s": 153.55,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.75,
+    "user_usec": 0.28,
+    "system_usec": 0.47
+   },
+   "stat_last": {
+    "anon": 249942016,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.74,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1517
+    ],
+    [
+     "0",
+     24
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-owncode-r1",
+   "batch": "runs",
+   "config": "anon-fit-high-owncode",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:32:01Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 24.46,
+   "kill_after_s": null,
+   "ops": 894,
+   "held_end_mib": 223.5,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.210613,
+    "p99": 0.735682,
+    "max": 1793.972254,
+    "p99_last_tenth": 1793.972254
+   },
+   "sum_op_s": 4.6,
+   "unfinished_op_s": 9.6,
+   "ops_with_high_events": 19,
+   "high_events_per_17": 182.8,
+   "events": {
+    "high": 9436,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 11.72,
+   "psi_mem_full_s": 11.72,
+   "psi_mem_some_avg10_max": 45.12,
+   "psi_io_some_s": 21.24,
+   "cpu_s": {
+    "usage_usec": 2.99,
+    "user_usec": 0.17,
+    "system_usec": 2.82
+   },
+   "stat_last": {
+    "anon": 240762880,
+    "file": 262144,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 617906,
+   "refault_file": 617308,
+   "majflt": 19996,
+   "disk_read_mb": 2534.6,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     220
+    ],
+    [
+     "0",
+     24
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-owncode-r2",
+   "batch": "runs",
+   "config": "anon-fit-high-owncode",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:47:49Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 24.49,
+   "kill_after_s": null,
+   "ops": 894,
+   "held_end_mib": 223.5,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.23271,
+    "p99": 0.804535,
+    "max": 2082.968598,
+    "p99_last_tenth": 2082.968598
+   },
+   "sum_op_s": 4.4,
+   "unfinished_op_s": 11.3,
+   "ops_with_high_events": 17,
+   "high_events_per_17": 178.3,
+   "events": {
+    "high": 9499,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 11.94,
+   "psi_mem_full_s": 11.94,
+   "psi_mem_some_avg10_max": 43.88,
+   "psi_io_some_s": 20.5,
+   "cpu_s": {
+    "usage_usec": 3.49,
+    "user_usec": 0.2,
+    "system_usec": 3.29
+   },
+   "stat_last": {
+    "anon": 240766976,
+    "file": 258048,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 617388,
+   "refault_file": 616790,
+   "majflt": 19840,
+   "disk_read_mb": 2532.5,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     136
+    ],
+    [
+     "0",
+     108
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-owncode-r3",
+   "batch": "runs",
+   "config": "anon-fit-high-owncode",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:03:11Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 23.48,
+   "kill_after_s": null,
+   "ops": 894,
+   "held_end_mib": 223.5,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.25248,
+    "p99": 0.934017,
+    "max": 1699.583827,
+    "p99_last_tenth": 1699.583827
+   },
+   "sum_op_s": 4.19,
+   "unfinished_op_s": 9.5,
+   "ops_with_high_events": 19,
+   "high_events_per_17": 169.8,
+   "events": {
+    "high": 9056,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 11.44,
+   "psi_mem_full_s": 11.44,
+   "psi_mem_some_avg10_max": 45.24,
+   "psi_io_some_s": 19.85,
+   "cpu_s": {
+    "usage_usec": 3.31,
+    "user_usec": 0.21,
+    "system_usec": 3.1
+   },
+   "stat_last": {
+    "anon": 240762880,
+    "file": 262144,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 591486,
+   "refault_file": 590885,
+   "majflt": 19158,
+   "disk_read_mb": 2426.4,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     127
+    ],
+    [
+     "0",
+     107
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-populate-r1",
+   "batch": "runs",
+   "config": "anon-fit-high-populate",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--populate"
+   ],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:31:19Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 41.24,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.807171,
+   "lat_ms": {
+    "p50": 0.199796,
+    "p99": 191.907013,
+    "max": 192.107918,
+    "p99_last_tenth": 192.073379
+   },
+   "sum_op_s": 39.44,
+   "unfinished_op_s": 1.1,
+   "ops_with_high_events": 236,
+   "high_events_per_17": 426.7,
+   "events": {
+    "high": 7663,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 40.63,
+   "psi_mem_full_s": 40.63,
+   "psi_mem_some_avg10_max": 97.1,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.52,
+    "user_usec": 0.2,
+    "system_usec": 0.32
+   },
+   "stat_last": {
+    "anon": 249712640,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     404
+    ],
+    [
+     "0",
+     8
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-populate-r2",
+   "batch": "runs",
+   "config": "anon-fit-high-populate",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--populate"
+   ],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:47:07Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 41.52,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.7,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.515171,
+   "lat_ms": {
+    "p50": 0.224686,
+    "p99": 193.782578,
+    "max": 376.462479,
+    "p99_last_tenth": 195.723378
+   },
+   "sum_op_s": 39.63,
+   "unfinished_op_s": 1.2,
+   "ops_with_high_events": 235,
+   "high_events_per_17": 428.6,
+   "events": {
+    "high": 7748,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 40.81,
+   "psi_mem_full_s": 40.81,
+   "psi_mem_some_avg10_max": 97.09,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.58,
+    "user_usec": 0.3,
+    "system_usec": 0.28
+   },
+   "stat_last": {
+    "anon": 249974784,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     406
+    ],
+    [
+     "0",
+     7
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-populate-r3",
+   "batch": "runs",
+   "config": "anon-fit-high-populate",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--populate"
+   ],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:02:29Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 40.9,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.757816,
+   "lat_ms": {
+    "p50": 0.212448,
+    "p99": 191.896592,
+    "max": 195.984919,
+    "p99_last_tenth": 191.9027
+   },
+   "sum_op_s": 39.09,
+   "unfinished_op_s": 1.1,
+   "ops_with_high_events": 236,
+   "high_events_per_17": 426.7,
+   "events": {
+    "high": 7664,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 40.21,
+   "psi_mem_full_s": 40.21,
+   "psi_mem_some_avg10_max": 97.09,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.59,
+    "user_usec": 0.23,
+    "system_usec": 0.36
+   },
+   "stat_last": {
+    "anon": 249708544,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     397
+    ],
+    [
+     "0",
+     10
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-r1",
+   "batch": "runs",
+   "config": "anon-fit-high",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:26:09Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 152.67,
+   "kill_after_s": null,
+   "ops": 945,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 17,
+   "churn_p50_ms": 6135.882718,
+   "lat_ms": {
+    "p50": 0.214041,
+    "p99": 6127.780031,
+    "max": 6191.859403,
+    "p99_last_tenth": 6191.859403
+   },
+   "sum_op_s": 151.35,
+   "unfinished_op_s": 1.1,
+   "ops_with_high_events": 53,
+   "high_events_per_17": 1889.8,
+   "events": {
+    "high": 32519,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 151.79,
+   "psi_mem_full_s": 151.79,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.66,
+    "user_usec": 0.28,
+    "system_usec": 0.38
+   },
+   "stat_last": {
+    "anon": 249942016,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 3.27,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1497
+    ],
+    [
+     "0",
+     25
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-r2",
+   "batch": "runs",
+   "config": "anon-fit-high",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:56Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.1,
+   "kill_after_s": null,
+   "ops": 943,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.9,
+   "churn_ops": 15,
+   "churn_p50_ms": 6223.752355,
+   "lat_ms": {
+    "p50": 0.22195,
+    "p99": 6207.857108,
+    "max": 6239.873438,
+    "p99_last_tenth": 6239.873438
+   },
+   "sum_op_s": 149.46,
+   "unfinished_op_s": 5.5,
+   "ops_with_high_events": 51,
+   "high_events_per_17": 2198.8,
+   "events": {
+    "high": 38365,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.18,
+   "psi_mem_full_s": 154.18,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.73,
+    "user_usec": 0.34,
+    "system_usec": 0.38
+   },
+   "stat_last": {
+    "anon": 249937920,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.94,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1519
+    ],
+    [
+     "0",
+     28
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-high-r3",
+   "batch": "runs",
+   "config": "anon-fit-high",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:57:17Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.11,
+   "kill_after_s": null,
+   "ops": 945,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 17,
+   "churn_p50_ms": 6215.765715,
+   "lat_ms": {
+    "p50": 0.295004,
+    "p99": 6207.832652,
+    "max": 6239.829222,
+    "p99_last_tenth": 6239.829222
+   },
+   "sum_op_s": 148.63,
+   "unfinished_op_s": 6.3,
+   "ops_with_high_events": 53,
+   "high_events_per_17": 1699.7,
+   "events": {
+    "high": 30018,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.07,
+   "psi_mem_full_s": 154.07,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.79,
+    "user_usec": 0.37,
+    "system_usec": 0.42
+   },
+   "stat_last": {
+    "anon": 249942016,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.8,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1529
+    ],
+    [
+     "0",
+     18
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-fit-max-r1",
+   "batch": "runs",
+   "config": "anon-fit-max",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:26:08Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.49,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.295915,
+   "lat_ms": {
+    "p50": 0.245287,
+    "p99": 0.410042,
+    "max": 1.003701,
+    "p99_last_tenth": 0.377833
+   },
+   "sum_op_s": 0.28,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.18,
+    "system_usec": 0.26
+   },
+   "stat_last": {
+    "anon": 249950208,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 626688
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-fit-max-r2",
+   "batch": "runs",
+   "config": "anon-fit-max",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:55Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.47,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.255659,
+   "lat_ms": {
+    "p50": 0.242339,
+    "p99": 0.587956,
+    "max": 1.126432,
+    "p99_last_tenth": 0.360557
+   },
+   "sum_op_s": 0.28,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.18,
+    "system_usec": 0.25
+   },
+   "stat_last": {
+    "anon": 249954304,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-fit-max-r3",
+   "batch": "runs",
+   "config": "anon-fit-max",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:57:15Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.43,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 196.8,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.27747,
+   "lat_ms": {
+    "p50": 0.213449,
+    "p99": 0.578848,
+    "max": 0.882935,
+    "p99_last_tenth": 0.380649
+   },
+   "sum_op_s": 0.26,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.39,
+    "user_usec": 0.15,
+    "system_usec": 0.24
+   },
+   "stat_last": {
+    "anon": 205627392,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 679936
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-fit-none-r1",
+   "batch": "runs",
+   "config": "anon-fit-none",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:26:06Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.49,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 238.8,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.277525,
+   "lat_ms": {
+    "p50": 0.236777,
+    "p99": 0.437096,
+    "max": 1.141705,
+    "p99_last_tenth": 0.402567
+   },
+   "sum_op_s": 0.27,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.2,
+    "system_usec": 0.23
+   },
+   "stat_last": {
+    "anon": 249737216,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 626688
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-fit-none-r2",
+   "batch": "runs",
+   "config": "anon-fit-none",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:53Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.45,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.25735,
+   "lat_ms": {
+    "p50": 0.224671,
+    "p99": 0.59959,
+    "max": 0.910008,
+    "p99_last_tenth": 0.359272
+   },
+   "sum_op_s": 0.27,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.41,
+    "user_usec": 0.16,
+    "system_usec": 0.25
+   },
+   "stat_last": {
+    "anon": 249962496,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 622592
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-fit-none-r3",
+   "batch": "runs",
+   "config": "anon-fit-none",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:57:14Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.43,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.2,
+   "current_last_mib": 203.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.25447,
+   "lat_ms": {
+    "p50": 0.21774,
+    "p99": 0.600495,
+    "max": 0.862565,
+    "p99_last_tenth": 0.334506
+   },
+   "sum_op_s": 0.26,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.39,
+    "user_usec": 0.15,
+    "system_usec": 0.24
+   },
+   "stat_last": {
+    "anon": 212201472,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 667648
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-4p-high-r1",
+   "batch": "runs",
+   "config": "anon-over-4p-high",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 4,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:37:41Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 154.69,
+   "kill_after_s": null,
+   "ops": 892,
+   "held_end_mib": 57.5,
+   "peak_mib": 249.3,
+   "current_last_mib": 249.1,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.268307,
+    "p99": 21327.758475,
+    "max": 26430.972052,
+    "p99_last_tenth": 26430.972052
+   },
+   "sum_op_s": 609.38,
+   "unfinished_op_s": 0.7,
+   "ops_with_high_events": 76,
+   "high_events_per_17": 11376.4,
+   "events": {
+    "high": 48871,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 153.62,
+   "psi_mem_full_s": 153.41,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 1.17,
+    "user_usec": 0.69,
+    "system_usec": 0.48
+   },
+   "stat_last": {
+    "anon": 260165632,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 1003520
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 1,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 42.28,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     6114
+    ],
+    [
+     "0",
+     51
+    ],
+    [
+     "cgroup_kn_lock_live",
+     3
+    ]
+   ],
+   "end_reasons": [
+    "time",
+    "time",
+    "time",
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-4p-high-r2",
+   "batch": "runs",
+   "config": "anon-over-4p-high",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 4,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:53:30Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 152.01,
+   "kill_after_s": null,
+   "ops": 901,
+   "held_end_mib": 59.2,
+   "peak_mib": 251.1,
+   "current_last_mib": 250.8,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.255653,
+    "p99": 24399.848994,
+    "max": 30719.936508,
+    "p99_last_tenth": 30719.936508
+   },
+   "sum_op_s": 604.77,
+   "unfinished_op_s": 0.3,
+   "ops_with_high_events": 87,
+   "high_events_per_17": 6886.4,
+   "events": {
+    "high": 29337,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 151.0,
+   "psi_mem_full_s": 150.78,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.93,
+    "user_usec": 0.52,
+    "system_usec": 0.4
+   },
+   "stat_last": {
+    "anon": 262000640,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 1007616
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 34.04,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     6020
+    ],
+    [
+     "0",
+     40
+    ],
+    [
+     "cgroup_kn_lock_live",
+     3
+    ]
+   ],
+   "end_reasons": [
+    "time",
+    "time",
+    "time",
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-4p-high-r3",
+   "batch": "runs",
+   "config": "anon-over-4p-high",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 4,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:08:51Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.05,
+   "kill_after_s": null,
+   "ops": 894,
+   "held_end_mib": 58.8,
+   "peak_mib": 250.5,
+   "current_last_mib": 249.6,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.230519,
+    "p99": 22775.964346,
+    "max": 28327.720938,
+    "p99_last_tenth": 28327.720938
+   },
+   "sum_op_s": 542.37,
+   "unfinished_op_s": 15.9,
+   "ops_with_high_events": 78,
+   "high_events_per_17": 8338.9,
+   "events": {
+    "high": 38195,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.07,
+   "psi_mem_full_s": 153.91,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.93,
+    "user_usec": 0.56,
+    "system_usec": 0.37
+   },
+   "stat_last": {
+    "anon": 260681728,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 1003520
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 39.43,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     6150
+    ],
+    [
+     "0",
+     34
+    ],
+    [
+     "cgroup_kn_lock_live",
+     3
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-long-r1",
+   "batch": "runs",
+   "config": "anon-over-both-long",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:12:37Z",
+   "outcome": "oom_kill",
+   "hard_killed": false,
+   "wall_s": 1747.79,
+   "kill_after_s": 1747.69,
+   "ops": 996,
+   "held_end_mib": 249.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 256.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.230998,
+    "p99": 44543.799685,
+    "max": 53183.744023,
+    "p99_last_tenth": 53183.744023
+   },
+   "sum_op_s": 1746.45,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 104,
+   "high_events_per_17": 4884.7,
+   "events": {
+    "high": 83109,
+    "low": 0,
+    "max": 35,
+    "oom": 1,
+    "oom_group_kill": 0,
+    "oom_kill": 1
+   },
+   "psi_mem_some_s": 1742.45,
+   "psi_mem_full_s": 1742.45,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 1.19,
+    "user_usec": 0.51,
+    "system_usec": 0.68
+   },
+   "stat_last": {
+    "anon": 267751424,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 643072
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 8.74,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     17375
+    ],
+    [
+     "0",
+     56
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-owncode-r1",
+   "batch": "runs",
+   "config": "anon-over-both-owncode",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "both",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:40:43Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.09,
+   "kill_after_s": null,
+   "ops": 892,
+   "held_end_mib": 223.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 230.2,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.20533,
+    "p99": 0.647922,
+    "max": 796.662259,
+    "p99_last_tenth": 796.662259
+   },
+   "sum_op_s": 1.21,
+   "unfinished_op_s": 22.5,
+   "ops_with_high_events": 17,
+   "high_events_per_17": 32.6,
+   "events": {
+    "high": 9525,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 14.3,
+   "psi_mem_full_s": 14.3,
+   "psi_mem_some_avg10_max": 56.07,
+   "psi_io_some_s": 21.48,
+   "cpu_s": {
+    "usage_usec": 3.42,
+    "user_usec": 0.17,
+    "system_usec": 3.24
+   },
+   "stat_last": {
+    "anon": 240500736,
+    "file": 262144,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 634192,
+   "refault_file": 632700,
+   "majflt": 20298,
+   "disk_read_mb": 2597.7,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     213
+    ],
+    [
+     "0",
+     37
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-owncode-r2",
+   "batch": "runs",
+   "config": "anon-over-both-owncode",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "both",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:56:30Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.1,
+   "kill_after_s": null,
+   "ops": 894,
+   "held_end_mib": 223.5,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.24118,
+    "p99": 0.955251,
+    "max": 2074.495725,
+    "p99_last_tenth": 2074.495725
+   },
+   "sum_op_s": 4.64,
+   "unfinished_op_s": 10.8,
+   "ops_with_high_events": 19,
+   "high_events_per_17": 176.4,
+   "events": {
+    "high": 9589,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 12.39,
+   "psi_mem_full_s": 12.39,
+   "psi_mem_some_avg10_max": 47.32,
+   "psi_io_some_s": 21.3,
+   "cpu_s": {
+    "usage_usec": 3.52,
+    "user_usec": 0.22,
+    "system_usec": 3.3
+   },
+   "stat_last": {
+    "anon": 240762880,
+    "file": 192512,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 633766,
+   "refault_file": 632306,
+   "majflt": 20399,
+   "disk_read_mb": 2595.9,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     144
+    ],
+    [
+     "0",
+     106
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-owncode-r3",
+   "batch": "runs",
+   "config": "anon-over-both-owncode",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "both",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:11:53Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.1,
+   "kill_after_s": null,
+   "ops": 893,
+   "held_end_mib": 223.2,
+   "peak_mib": 231.1,
+   "current_last_mib": 230.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.266326,
+    "p99": 0.766705,
+    "max": 4795.847929,
+    "p99_last_tenth": 4795.847929
+   },
+   "sum_op_s": 5.98,
+   "unfinished_op_s": 15.3,
+   "ops_with_high_events": 17,
+   "high_events_per_17": 162.0,
+   "events": {
+    "high": 9683,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 12.85,
+   "psi_mem_full_s": 12.85,
+   "psi_mem_some_avg10_max": 49.69,
+   "psi_io_some_s": 21.33,
+   "cpu_s": {
+    "usage_usec": 3.51,
+    "user_usec": 0.2,
+    "system_usec": 3.31
+   },
+   "stat_last": {
+    "anon": 240766976,
+    "file": 262144,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 633090,
+   "refault_file": 631686,
+   "majflt": 20245,
+   "disk_read_mb": 2593.4,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     143
+    ],
+    [
+     "0",
+     107
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-r1",
+   "batch": "runs",
+   "config": "anon-over-both",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:35:05Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 154.41,
+   "kill_after_s": null,
+   "ops": 940,
+   "held_end_mib": 235.0,
+   "peak_mib": 242.2,
+   "current_last_mib": 242.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.22963,
+    "p99": 6999.854102,
+    "max": 10593.931018,
+    "p99_last_tenth": 10593.931018
+   },
+   "sum_op_s": 151.39,
+   "unfinished_op_s": 2.6,
+   "ops_with_high_events": 48,
+   "high_events_per_17": 1676.9,
+   "events": {
+    "high": 29086,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 153.5,
+   "psi_mem_full_s": 153.5,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.66,
+    "user_usec": 0.25,
+    "system_usec": 0.41
+   },
+   "stat_last": {
+    "anon": 253091840,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 26.89,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1508
+    ],
+    [
+     "0",
+     30
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-r2",
+   "batch": "runs",
+   "config": "anon-over-both",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:50:54Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.07,
+   "kill_after_s": null,
+   "ops": 939,
+   "held_end_mib": 234.8,
+   "peak_mib": 242.1,
+   "current_last_mib": 241.7,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.249913,
+    "p99": 6671.798492,
+    "max": 10287.785854,
+    "p99_last_tenth": 10287.785854
+   },
+   "sum_op_s": 147.47,
+   "unfinished_op_s": 7.4,
+   "ops_with_high_events": 47,
+   "high_events_per_17": 1857.0,
+   "events": {
+    "high": 32334,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.11,
+   "psi_mem_full_s": 154.11,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.71,
+    "user_usec": 0.29,
+    "system_usec": 0.42
+   },
+   "stat_last": {
+    "anon": 252825600,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 27.96,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1522
+    ],
+    [
+     "0",
+     24
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-both-r3",
+   "batch": "runs",
+   "config": "anon-over-both",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:06:14Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.11,
+   "kill_after_s": null,
+   "ops": 940,
+   "held_end_mib": 235.0,
+   "peak_mib": 242.4,
+   "current_last_mib": 242.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.295564,
+    "p99": 7167.794723,
+    "max": 10671.917526,
+    "p99_last_tenth": 10671.917526
+   },
+   "sum_op_s": 144.84,
+   "unfinished_op_s": 9.8,
+   "ops_with_high_events": 48,
+   "high_events_per_17": 1363.8,
+   "events": {
+    "high": 24170,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.11,
+   "psi_mem_full_s": 154.11,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.69,
+    "user_usec": 0.3,
+    "system_usec": 0.39
+   },
+   "stat_last": {
+    "anon": 253095936,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 26.62,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1534
+    ],
+    [
+     "0",
+     13
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-high-r1",
+   "batch": "runs",
+   "config": "anon-over-high",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:32:30Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 154.1,
+   "kill_after_s": null,
+   "ops": 941,
+   "held_end_mib": 235.2,
+   "peak_mib": 242.5,
+   "current_last_mib": 242.2,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.217936,
+    "p99": 7447.873481,
+    "max": 11247.935547,
+    "p99_last_tenth": 11247.935547
+   },
+   "sum_op_s": 152.28,
+   "unfinished_op_s": 1.4,
+   "ops_with_high_events": 49,
+   "high_events_per_17": 1364.8,
+   "events": {
+    "high": 23627,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 153.22,
+   "psi_mem_full_s": 153.22,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.59,
+    "user_usec": 0.25,
+    "system_usec": 0.34
+   },
+   "stat_last": {
+    "anon": 253353984,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 25.29,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1517
+    ],
+    [
+     "0",
+     20
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-high-r2",
+   "batch": "runs",
+   "config": "anon-over-high",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:48:18Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.11,
+   "kill_after_s": null,
+   "ops": 938,
+   "held_end_mib": 234.5,
+   "peak_mib": 241.9,
+   "current_last_mib": 241.5,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.226081,
+    "p99": 6375.696771,
+    "max": 9799.777522,
+    "p99_last_tenth": 9799.777522
+   },
+   "sum_op_s": 145.53,
+   "unfinished_op_s": 9.4,
+   "ops_with_high_events": 46,
+   "high_events_per_17": 2051.8,
+   "events": {
+    "high": 35901,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.18,
+   "psi_mem_full_s": 154.18,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.72,
+    "user_usec": 0.31,
+    "system_usec": 0.41
+   },
+   "stat_last": {
+    "anon": 252559360,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 29.91,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1513
+    ],
+    [
+     "0",
+     33
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-high-r3",
+   "batch": "runs",
+   "config": "anon-over-high",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:03:38Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 155.13,
+   "kill_after_s": null,
+   "ops": 940,
+   "held_end_mib": 235.0,
+   "peak_mib": 242.4,
+   "current_last_mib": 242.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.217698,
+    "p99": 7119.707508,
+    "max": 10736.009952,
+    "p99_last_tenth": 10736.009952
+   },
+   "sum_op_s": 144.67,
+   "unfinished_op_s": 10.1,
+   "ops_with_high_events": 48,
+   "high_events_per_17": 1363.8,
+   "events": {
+    "high": 24187,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 154.24,
+   "psi_mem_full_s": 154.24,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.6,
+    "user_usec": 0.23,
+    "system_usec": 0.36
+   },
+   "stat_last": {
+    "anon": 253091840,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 26.62,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1533
+    ],
+    [
+     "0",
+     14
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-over-max-owncode-fastdisk-r1",
+   "batch": "runs",
+   "config": "anon-over-max-owncode-fastdisk",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "max",
+   "code": "own",
+   "procs": 1,
+   "io_cap": false,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:09Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.08,
+   "kill_after_s": null,
+   "ops": 994,
+   "held_end_mib": 248.5,
+   "peak_mib": 256.0,
+   "current_last_mib": 256.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.233121,
+    "p99": 0.700107,
+    "max": 71.408117,
+    "p99_last_tenth": 71.408117
+   },
+   "sum_op_s": 0.33,
+   "unfinished_op_s": 24.7,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 79480,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 6.23,
+   "psi_mem_full_s": 6.23,
+   "psi_mem_some_avg10_max": 22.41,
+   "psi_io_some_s": 13.56,
+   "cpu_s": {
+    "usage_usec": 11.11,
+    "user_usec": 0.23,
+    "system_usec": 10.87
+   },
+   "stat_last": {
+    "anon": 267259904,
+    "file": 487424,
+    "shmem": 0,
+    "kernel": 667648
+   },
+   "pgsteal": 2559211,
+   "refault_file": 2557751,
+   "majflt": 80150,
+   "disk_read_mb": 10482.7,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     217
+    ],
+    [
+     "folio_wait_bit_common",
+     33
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-max-owncode-r1",
+   "batch": "runs",
+   "config": "anon-over-max-owncode",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "max",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:40:17Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.09,
+   "kill_after_s": null,
+   "ops": 995,
+   "held_end_mib": 248.8,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.252002,
+    "p99": 0.69407,
+    "max": 2794.384442,
+    "p99_last_tenth": 2794.384442
+   },
+   "sum_op_s": 3.2,
+   "unfinished_op_s": 20.8,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 20018,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 1.87,
+   "psi_mem_full_s": 1.87,
+   "psi_mem_some_avg10_max": 6.26,
+   "psi_io_some_s": 21.7,
+   "cpu_s": {
+    "usage_usec": 3.19,
+    "user_usec": 0.22,
+    "system_usec": 2.97
+   },
+   "stat_last": {
+    "anon": 267517952,
+    "file": 131072,
+    "shmem": 0,
+    "kernel": 663552
+   },
+   "pgsteal": 631217,
+   "refault_file": 629757,
+   "majflt": 20045,
+   "disk_read_mb": 2585.6,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     238
+    ],
+    [
+     "0",
+     12
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-max-owncode-r2",
+   "batch": "runs",
+   "config": "anon-over-max-owncode",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "max",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:56:03Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.1,
+   "kill_after_s": null,
+   "ops": 994,
+   "held_end_mib": 248.5,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.226348,
+    "p99": 0.660245,
+    "max": 214.170473,
+    "p99_last_tenth": 214.170473
+   },
+   "sum_op_s": 0.46,
+   "unfinished_op_s": 24.5,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 19140,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 2.03,
+   "psi_mem_full_s": 2.03,
+   "psi_mem_some_avg10_max": 6.21,
+   "psi_io_some_s": 21.32,
+   "cpu_s": {
+    "usage_usec": 3.45,
+    "user_usec": 0.18,
+    "system_usec": 3.26
+   },
+   "stat_last": {
+    "anon": 267264000,
+    "file": 380928,
+    "shmem": 0,
+    "kernel": 667648
+   },
+   "pgsteal": 633258,
+   "refault_file": 631798,
+   "majflt": 19872,
+   "disk_read_mb": 2594.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     139
+    ],
+    [
+     "0",
+     111
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-max-owncode-r3",
+   "batch": "runs",
+   "config": "anon-over-max-owncode",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "max",
+   "code": "own",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:11:27Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 25.09,
+   "kill_after_s": null,
+   "ops": 995,
+   "held_end_mib": 248.8,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.277322,
+    "p99": 0.740295,
+    "max": 2982.631392,
+    "p99_last_tenth": 2982.631392
+   },
+   "sum_op_s": 3.48,
+   "unfinished_op_s": 20.6,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 20019,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 2.12,
+   "psi_mem_full_s": 2.12,
+   "psi_mem_some_avg10_max": 6.11,
+   "psi_io_some_s": 21.4,
+   "cpu_s": {
+    "usage_usec": 3.44,
+    "user_usec": 0.23,
+    "system_usec": 3.21
+   },
+   "stat_last": {
+    "anon": 267517952,
+    "file": 131072,
+    "shmem": 0,
+    "kernel": 663552
+   },
+   "pgsteal": 631197,
+   "refault_file": 629737,
+   "majflt": 19992,
+   "disk_read_mb": 2585.4,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     162
+    ],
+    [
+     "0",
+     88
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-max-r1",
+   "batch": "runs",
+   "config": "anon-over-max",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:32:29Z",
+   "outcome": "oom_kill",
+   "hard_killed": false,
+   "wall_s": 0.5,
+   "kill_after_s": 0.39,
+   "ops": 996,
+   "held_end_mib": 249.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 211.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.270808,
+    "p99": 0.429569,
+    "max": 1.268361,
+    "p99_last_tenth": 0.338402
+   },
+   "sum_op_s": 0.28,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 35,
+    "oom": 1,
+    "oom_group_kill": 0,
+    "oom_kill": 1
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.45,
+    "user_usec": 0.19,
+    "system_usec": 0.26
+   },
+   "stat_last": {
+    "anon": 221069312,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 561152
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-max-r2",
+   "batch": "runs",
+   "config": "anon-over-max",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:48:17Z",
+   "outcome": "oom_kill",
+   "hard_killed": false,
+   "wall_s": 0.39,
+   "kill_after_s": 0.3,
+   "ops": 996,
+   "held_end_mib": 249.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 198.2,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.209799,
+    "p99": 0.39618,
+    "max": 1.200613,
+    "p99_last_tenth": 0.289716
+   },
+   "sum_op_s": 0.22,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 35,
+    "oom": 1,
+    "oom_group_kill": 0,
+    "oom_kill": 1
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.35,
+    "user_usec": 0.15,
+    "system_usec": 0.2
+   },
+   "stat_last": {
+    "anon": 207306752,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 532480
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     3
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-max-r3",
+   "batch": "runs",
+   "config": "anon-over-max",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:03:37Z",
+   "outcome": "oom_kill",
+   "hard_killed": false,
+   "wall_s": 0.36,
+   "kill_after_s": 0.28,
+   "ops": 996,
+   "held_end_mib": 249.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 225.2,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.202023,
+    "p99": 0.54918,
+    "max": 0.918899,
+    "p99_last_tenth": 0.414362
+   },
+   "sum_op_s": 0.21,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 35,
+    "oom": 1,
+    "oom_group_kill": 0,
+    "oom_kill": 1
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.33,
+    "user_usec": 0.13,
+    "system_usec": 0.2
+   },
+   "stat_last": {
+    "anon": 235589632,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 585728
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     3
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-none-r1",
+   "batch": "runs",
+   "config": "anon-over-none",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:32:27Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.67,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.4,
+   "current_last_mib": 326.9,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.315275,
+   "lat_ms": {
+    "p50": 0.254941,
+    "p99": 0.589576,
+    "max": 1.332819,
+    "p99_last_tenth": 0.577907
+   },
+   "sum_op_s": 0.4,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.61,
+    "user_usec": 0.26,
+    "system_usec": 0.34
+   },
+   "stat_last": {
+    "anon": 342011904,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 802816
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     6
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-none-r2",
+   "batch": "runs",
+   "config": "anon-over-none",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:48:15Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.63,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.4,
+   "current_last_mib": 326.2,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.302261,
+   "lat_ms": {
+    "p50": 0.235646,
+    "p99": 0.639083,
+    "max": 1.260538,
+    "p99_last_tenth": 0.452241
+   },
+   "sum_op_s": 0.38,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.57,
+    "user_usec": 0.23,
+    "system_usec": 0.34
+   },
+   "stat_last": {
+    "anon": 341213184,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 790528
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     6
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-over-none-r3",
+   "batch": "runs",
+   "config": "anon-over-none",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:03:35Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 0.59,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.4,
+   "current_last_mib": 327.2,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.257936,
+   "lat_ms": {
+    "p50": 0.230112,
+    "p99": 0.638661,
+    "max": 1.20395,
+    "p99_last_tenth": 0.34229
+   },
+   "sum_op_s": 0.36,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.54,
+    "user_usec": 0.2,
+    "system_usec": 0.33
+   },
+   "stat_last": {
+    "anon": 342265856,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 811008
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     5
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "file-over-both-r1",
+   "batch": "runs",
+   "config": "file-over-both",
+   "rep": 1,
+   "kind": "file",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:49Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.4,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 230.4,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.079854,
+   "lat_ms": {
+    "p50": 0.247877,
+    "p99": 89.892829,
+    "max": 96.938745,
+    "p99_last_tenth": 1.54244
+   },
+   "sum_op_s": 3.22,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 420,
+   "high_events_per_17": 24.7,
+   "events": {
+    "high": 424,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.02,
+   "psi_mem_full_s": 0.02,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.92,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.12,
+    "system_usec": 0.31
+   },
+   "stat_last": {
+    "anon": 6631424,
+    "file": 234094592,
+    "shmem": 0,
+    "kernel": 909312
+   },
+   "pgsteal": 28864,
+   "refault_file": 3968,
+   "majflt": 0,
+   "disk_read_mb": 352.1,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     33
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "file-over-both-r2",
+   "batch": "runs",
+   "config": "file-over-both",
+   "rep": 2,
+   "kind": "file",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:57:09Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.42,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 229.7,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.092232,
+   "lat_ms": {
+    "p50": 0.269113,
+    "p99": 87.301364,
+    "max": 96.373404,
+    "p99_last_tenth": 1.390972
+   },
+   "sum_op_s": 3.2,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 418,
+   "high_events_per_17": 24.6,
+   "events": {
+    "high": 423,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.88,
+   "cpu_s": {
+    "usage_usec": 0.49,
+    "user_usec": 0.15,
+    "system_usec": 0.33
+   },
+   "stat_last": {
+    "anon": 6111232,
+    "file": 233832448,
+    "shmem": 0,
+    "kernel": 913408
+   },
+   "pgsteal": 28544,
+   "refault_file": 3648,
+   "majflt": 0,
+   "disk_read_mb": 350.7,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     29
+    ],
+    [
+     "0",
+     5
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "file-over-both-r3",
+   "batch": "runs",
+   "config": "file-over-both",
+   "rep": 3,
+   "kind": "file",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:12:33Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.41,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 229.7,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.081483,
+   "lat_ms": {
+    "p50": 0.288407,
+    "p99": 82.859762,
+    "max": 90.670423,
+    "p99_last_tenth": 0.99911
+   },
+   "sum_op_s": 3.18,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 412,
+   "high_events_per_17": 24.2,
+   "events": {
+    "high": 416,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.82,
+   "cpu_s": {
+    "usage_usec": 0.53,
+    "user_usec": 0.18,
+    "system_usec": 0.35
+   },
+   "stat_last": {
+    "anon": 6111232,
+    "file": 233832448,
+    "shmem": 0,
+    "kernel": 909312
+   },
+   "pgsteal": 28352,
+   "refault_file": 3456,
+   "majflt": 0,
+   "disk_read_mb": 350.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     28
+    ],
+    [
+     "folio_wait_bit_common",
+     6
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "file-over-high-r1",
+   "batch": "runs",
+   "config": "file-over-high",
+   "rep": 1,
+   "kind": "file",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:44Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.41,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 229.7,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.08841,
+   "lat_ms": {
+    "p50": 0.249312,
+    "p99": 87.300603,
+    "max": 92.807793,
+    "p99_last_tenth": 1.272783
+   },
+   "sum_op_s": 3.21,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 426,
+   "high_events_per_17": 25.1,
+   "events": {
+    "high": 430,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.9,
+   "cpu_s": {
+    "usage_usec": 0.46,
+    "user_usec": 0.16,
+    "system_usec": 0.31
+   },
+   "stat_last": {
+    "anon": 6115328,
+    "file": 233832448,
+    "shmem": 0,
+    "kernel": 905216
+   },
+   "pgsteal": 28864,
+   "refault_file": 3968,
+   "majflt": 0,
+   "disk_read_mb": 352.1,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     32
+    ],
+    [
+     "0",
+     2
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "file-over-high-r2",
+   "batch": "runs",
+   "config": "file-over-high",
+   "rep": 2,
+   "kind": "file",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:57:05Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.4,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 230.4,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.087099,
+   "lat_ms": {
+    "p50": 0.270467,
+    "p99": 87.531746,
+    "max": 91.961995,
+    "p99_last_tenth": 2.130956
+   },
+   "sum_op_s": 3.21,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 415,
+   "high_events_per_17": 24.5,
+   "events": {
+    "high": 418,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.88,
+   "cpu_s": {
+    "usage_usec": 0.47,
+    "user_usec": 0.13,
+    "system_usec": 0.34
+   },
+   "stat_last": {
+    "anon": 6627328,
+    "file": 234094592,
+    "shmem": 0,
+    "kernel": 909312
+   },
+   "pgsteal": 28544,
+   "refault_file": 3648,
+   "majflt": 0,
+   "disk_read_mb": 350.7,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     32
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "file-over-high-r3",
+   "batch": "runs",
+   "config": "file-over-high",
+   "rep": 3,
+   "kind": "file",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:12:28Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.4,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 230.9,
+   "current_last_mib": 230.4,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.096527,
+   "lat_ms": {
+    "p50": 0.282243,
+    "p99": 85.036425,
+    "max": 91.667144,
+    "p99_last_tenth": 2.631627
+   },
+   "sum_op_s": 3.18,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 417,
+   "high_events_per_17": 24.6,
+   "events": {
+    "high": 420,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.03,
+   "psi_mem_full_s": 0.03,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.82,
+   "cpu_s": {
+    "usage_usec": 0.51,
+    "user_usec": 0.16,
+    "system_usec": 0.35
+   },
+   "stat_last": {
+    "anon": 6635520,
+    "file": 234094592,
+    "shmem": 0,
+    "kernel": 905216
+   },
+   "pgsteal": 28352,
+   "refault_file": 3456,
+   "majflt": 0,
+   "disk_read_mb": 350.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     32
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "file-over-max-r1",
+   "batch": "runs",
+   "config": "file-over-max",
+   "rep": 1,
+   "kind": "file",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:39Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.39,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.079912,
+   "lat_ms": {
+    "p50": 0.245978,
+    "p99": 88.560598,
+    "max": 99.22534,
+    "p99_last_tenth": 1.612076
+   },
+   "sum_op_s": 3.2,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 335,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.02,
+   "psi_mem_full_s": 0.02,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.9,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.14,
+    "system_usec": 0.29
+   },
+   "stat_last": {
+    "anon": 6631424,
+    "file": 260833280,
+    "shmem": 0,
+    "kernel": 905216
+   },
+   "pgsteal": 21440,
+   "refault_file": 3136,
+   "majflt": 0,
+   "disk_read_mb": 348.7,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     32
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "file-over-max-r2",
+   "batch": "runs",
+   "config": "file-over-max",
+   "rep": 2,
+   "kind": "file",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:57:00Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.34,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.085414,
+   "lat_ms": {
+    "p50": 0.273403,
+    "p99": 84.494171,
+    "max": 91.059846,
+    "p99_last_tenth": 1.145327
+   },
+   "sum_op_s": 3.12,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 324,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.02,
+   "psi_mem_full_s": 0.02,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.77,
+   "cpu_s": {
+    "usage_usec": 0.51,
+    "user_usec": 0.16,
+    "system_usec": 0.35
+   },
+   "stat_last": {
+    "anon": 6635520,
+    "file": 260833280,
+    "shmem": 0,
+    "kernel": 909312
+   },
+   "pgsteal": 20736,
+   "refault_file": 2432,
+   "majflt": 0,
+   "disk_read_mb": 345.8,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     31
+    ],
+    [
+     "0",
+     2
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "file-over-max-r3",
+   "batch": "runs",
+   "config": "file-over-max",
+   "rep": 3,
+   "kind": "file",
+   "limits": "max",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:12:24Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.35,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 256.0,
+   "current_last_mib": 255.9,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.078852,
+   "lat_ms": {
+    "p50": 0.284327,
+    "p99": 83.440978,
+    "max": 91.178576,
+    "p99_last_tenth": 1.337077
+   },
+   "sum_op_s": 3.12,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 322,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.02,
+   "psi_mem_full_s": 0.02,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.78,
+   "cpu_s": {
+    "usage_usec": 0.51,
+    "user_usec": 0.18,
+    "system_usec": 0.33
+   },
+   "stat_last": {
+    "anon": 6631424,
+    "file": 260833280,
+    "shmem": 0,
+    "kernel": 905216
+   },
+   "pgsteal": 20608,
+   "refault_file": 2304,
+   "majflt": 0,
+   "disk_read_mb": 345.2,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     17
+    ],
+    [
+     "folio_wait_bit_common",
+     16
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "file-over-none-r1",
+   "batch": "runs",
+   "config": "file-over-none",
+   "rep": 1,
+   "kind": "file",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:41:35Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.21,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.7,
+   "current_last_mib": 326.9,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.071472,
+   "lat_ms": {
+    "p50": 0.238253,
+    "p99": 86.512618,
+    "max": 92.850392,
+    "p99_last_tenth": 0.123994
+   },
+   "sum_op_s": 3.04,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.77,
+   "cpu_s": {
+    "usage_usec": 0.41,
+    "user_usec": 0.15,
+    "system_usec": 0.26
+   },
+   "stat_last": {
+    "anon": 6111232,
+    "file": 335806464,
+    "shmem": 0,
+    "kernel": 909312
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 335.5,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     31
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "file-over-none-r2",
+   "batch": "runs",
+   "config": "file-over-none",
+   "rep": 2,
+   "kind": "file",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T11:56:56Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.22,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.7,
+   "current_last_mib": 327.4,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.071032,
+   "lat_ms": {
+    "p50": 0.241716,
+    "p99": 86.087841,
+    "max": 91.665918,
+    "p99_last_tenth": 0.130442
+   },
+   "sum_op_s": 3.03,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.74,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.13,
+    "system_usec": 0.3
+   },
+   "stat_last": {
+    "anon": 6643712,
+    "file": 335806464,
+    "shmem": 0,
+    "kernel": 905216
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 335.5,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "folio_wait_bit_common",
+     31
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "file-over-none-r3",
+   "batch": "runs",
+   "config": "file-over-none",
+   "rep": 3,
+   "kind": "file",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "0ff572e752011cb4",
+   "utc_start": "2026-11-05T12:12:19Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 3.23,
+   "kill_after_s": null,
+   "ops": 1480,
+   "held_end_mib": 320.0,
+   "peak_mib": 327.7,
+   "current_last_mib": 327.4,
+   "churn_ops": 200,
+   "churn_p50_ms": 0.074603,
+   "lat_ms": {
+    "p50": 0.272027,
+    "p99": 82.053927,
+    "max": 91.385366,
+    "p99_last_tenth": 0.130056
+   },
+   "sum_op_s": 3.0,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 0,
+   "high_events_per_17": 0.0,
+   "events": {
+    "high": 0,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 0.0,
+   "psi_mem_full_s": 0.0,
+   "psi_mem_some_avg10_max": 0.0,
+   "psi_io_some_s": 2.64,
+   "cpu_s": {
+    "usage_usec": 0.52,
+    "user_usec": 0.17,
+    "system_usec": 0.35
+   },
+   "stat_last": {
+    "anon": 6635520,
+    "file": 335806464,
+    "shmem": 0,
+    "kernel": 909312
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 335.5,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "0",
+     19
+    ],
+    [
+     "folio_wait_bit_common",
+     13
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "max"
+  },
+  {
+   "run": "anon-clamp-high-r1",
+   "batch": "clamp",
+   "config": "anon-clamp-high",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--set-high-after-grow",
+    "241590272",
+    "--churn-kib",
+    "4"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:41:53Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 45.05,
+   "kill_after_s": null,
+   "ops": 1210,
+   "held_end_mib": 300.0,
+   "peak_mib": 307.4,
+   "current_last_mib": 306.9,
+   "churn_ops": 10,
+   "churn_p50_ms": 4095.792791,
+   "lat_ms": {
+    "p50": 0.26215,
+    "p99": 0.924849,
+    "max": 4097.193883,
+    "p99_last_tenth": 4095.920768
+   },
+   "sum_op_s": 39.26,
+   "unfinished_op_s": 3.6,
+   "ops_with_high_events": 10,
+   "high_events_per_17": 19.0,
+   "events": {
+    "high": 374,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 44.39,
+   "psi_mem_full_s": 44.39,
+   "psi_mem_some_avg10_max": 97.7,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.5,
+    "user_usec": 0.19,
+    "system_usec": 0.31
+   },
+   "stat_last": {
+    "anon": 321355776,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 749568
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     445
+    ],
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-clamp-high-r2",
+   "batch": "clamp",
+   "config": "anon-clamp-high",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--set-high-after-grow",
+    "241590272",
+    "--churn-kib",
+    "4"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:42:39Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 45.04,
+   "kill_after_s": null,
+   "ops": 1210,
+   "held_end_mib": 300.0,
+   "peak_mib": 307.4,
+   "current_last_mib": 307.2,
+   "churn_ops": 10,
+   "churn_p50_ms": 4095.837398,
+   "lat_ms": {
+    "p50": 0.2396,
+    "p99": 0.792487,
+    "max": 4096.090022,
+    "p99_last_tenth": 4095.907258
+   },
+   "sum_op_s": 39.2,
+   "unfinished_op_s": 3.7,
+   "ops_with_high_events": 10,
+   "high_events_per_17": 19.0,
+   "events": {
+    "high": 374,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 44.39,
+   "psi_mem_full_s": 44.39,
+   "psi_mem_some_avg10_max": 97.7,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.48,
+    "user_usec": 0.19,
+    "system_usec": 0.3
+   },
+   "stat_last": {
+    "anon": 321359872,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 753664
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     445
+    ],
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "anon-clamp-high-r3",
+   "batch": "clamp",
+   "config": "anon-clamp-high",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "none",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--set-high-after-grow",
+    "241590272",
+    "--churn-kib",
+    "4"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:43:25Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 45.05,
+   "kill_after_s": null,
+   "ops": 1210,
+   "held_end_mib": 300.0,
+   "peak_mib": 307.4,
+   "current_last_mib": 307.2,
+   "churn_ops": 10,
+   "churn_p50_ms": 4095.821951,
+   "lat_ms": {
+    "p50": 0.269786,
+    "p99": 0.958593,
+    "max": 4095.870564,
+    "p99_last_tenth": 4095.85748
+   },
+   "sum_op_s": 39.21,
+   "unfinished_op_s": 3.7,
+   "ops_with_high_events": 10,
+   "high_events_per_17": 19.0,
+   "events": {
+    "high": 374,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 44.37,
+   "psi_mem_full_s": 44.37,
+   "psi_mem_some_avg10_max": 97.7,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.51,
+    "user_usec": 0.2,
+    "system_usec": 0.32
+   },
+   "stat_last": {
+    "anon": 321355776,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 753664
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": null,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     444
+    ],
+    [
+     "0",
+     5
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-fit-high-cpu2-1s-r1",
+   "batch": "diag",
+   "config": "diag-fit-high-cpu2-1s",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:55:17Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 82.93,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.3,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.841023,
+   "lat_ms": {
+    "p50": 0.294256,
+    "p99": 575.749805,
+    "max": 6207.802108,
+    "p99_last_tenth": 4279.648076
+   },
+   "sum_op_s": 82.6,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 236,
+   "high_events_per_17": 874.8,
+   "events": {
+    "high": 14888,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 82.24,
+   "psi_mem_full_s": 82.24,
+   "psi_mem_some_avg10_max": 98.97,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.73,
+    "user_usec": 0.3,
+    "system_usec": 0.43
+   },
+   "stat_last": {
+    "anon": 249974784,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 3.39,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     82
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-fit-high-cpu2-1s-r2",
+   "batch": "diag",
+   "config": "diag-fit-high-cpu2-1s",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:07:08Z",
+   "outcome": "done",
+   "hard_killed": false,
+   "wall_s": 120.09,
+   "kill_after_s": null,
+   "ops": 1128,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.3,
+   "current_last_mib": 239.0,
+   "churn_ops": 200,
+   "churn_p50_ms": 191.827554,
+   "lat_ms": {
+    "p50": 0.275607,
+    "p99": 2399.875414,
+    "max": 6247.809691,
+    "p99_last_tenth": 6239.792517
+   },
+   "sum_op_s": 118.81,
+   "unfinished_op_s": 1.2,
+   "ops_with_high_events": 235,
+   "high_events_per_17": 1539.8,
+   "events": {
+    "high": 26534,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 119.33,
+   "psi_mem_full_s": 119.33,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.86,
+    "user_usec": 0.35,
+    "system_usec": 0.51
+   },
+   "stat_last": {
+    "anon": 250007552,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": -0.07,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     118
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "done"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-fit-high-cpu2-1s-r3",
+   "batch": "diag",
+   "config": "diag-fit-high-cpu2-1s",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:19:31Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.14,
+   "kill_after_s": null,
+   "ops": 1050,
+   "held_end_mib": 232.0,
+   "peak_mib": 239.3,
+   "current_last_mib": 239.0,
+   "churn_ops": 122,
+   "churn_p50_ms": 191.84385,
+   "lat_ms": {
+    "p50": 0.254559,
+    "p99": 6191.714608,
+    "max": 6239.870882,
+    "p99_last_tenth": 6239.830182
+   },
+   "sum_op_s": 119.17,
+   "unfinished_op_s": 5.7,
+   "ops_with_high_events": 158,
+   "high_events_per_17": 1256.8,
+   "events": {
+    "high": 22385,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.52,
+   "psi_mem_full_s": 124.52,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.68,
+    "user_usec": 0.28,
+    "system_usec": 0.4
+   },
+   "stat_last": {
+    "anon": 250019840,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 610304
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 2.37,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     125
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-both-cpu2-1s-r1",
+   "batch": "diag",
+   "config": "diag-over-both-cpu2-1s",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:53:16Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 120.33,
+   "kill_after_s": null,
+   "ops": 949,
+   "held_end_mib": 237.2,
+   "peak_mib": 244.4,
+   "current_last_mib": 244.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.252651,
+    "p99": 3263.802739,
+    "max": 13231.855614,
+    "p99_last_tenth": 13231.855614
+   },
+   "sum_op_s": 120.15,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 56,
+   "high_events_per_17": 1146.8,
+   "events": {
+    "high": 19495,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 119.77,
+   "psi_mem_full_s": 119.77,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.61,
+    "user_usec": 0.26,
+    "system_usec": 0.35
+   },
+   "stat_last": {
+    "anon": 255430656,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 622592
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 37.18,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     120
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-both-cpu2-1s-r2",
+   "batch": "diag",
+   "config": "diag-over-both-cpu2-1s",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:05:02Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.16,
+   "kill_after_s": null,
+   "ops": 935,
+   "held_end_mib": 233.8,
+   "peak_mib": 241.0,
+   "current_last_mib": 240.8,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.266485,
+    "p99": 5583.747044,
+    "max": 8655.891577,
+    "p99_last_tenth": 8655.891577
+   },
+   "sum_op_s": 123.86,
+   "unfinished_op_s": 1.2,
+   "ops_with_high_events": 43,
+   "high_events_per_17": 1934.8,
+   "events": {
+    "high": 33079,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.46,
+   "psi_mem_full_s": 124.46,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.86,
+    "user_usec": 0.37,
+    "system_usec": 0.5
+   },
+   "stat_last": {
+    "anon": 251805696,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 622592
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 34.94,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     125
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-both-cpu2-1s-r3",
+   "batch": "diag",
+   "config": "diag-over-both-cpu2-1s",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "both",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:17:25Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 124.29,
+   "kill_after_s": null,
+   "ops": 989,
+   "held_end_mib": 247.2,
+   "peak_mib": 254.4,
+   "current_last_mib": 254.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.271442,
+    "p99": 2079.867548,
+    "max": 24191.864408,
+    "p99_last_tenth": 24191.864408
+   },
+   "sum_op_s": 123.75,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 96,
+   "high_events_per_17": 298.7,
+   "events": {
+    "high": 5095,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 123.69,
+   "psi_mem_full_s": 123.69,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.56,
+    "user_usec": 0.23,
+    "system_usec": 0.33
+   },
+   "stat_last": {
+    "anon": 265805824,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 647168
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 53.3,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     124
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu0-100ms-r1",
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-100ms",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:44:51Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 124.88,
+   "kill_after_s": null,
+   "ops": 938,
+   "held_end_mib": 234.5,
+   "peak_mib": 241.8,
+   "current_last_mib": 241.3,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.206951,
+    "p99": 6535.830287,
+    "max": 10000.005371,
+    "p99_last_tenth": 10000.005371
+   },
+   "sum_op_s": 122.31,
+   "unfinished_op_s": 2.3,
+   "ops_with_high_events": 46,
+   "high_events_per_17": 1170.8,
+   "events": {
+    "high": 20432,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.09,
+   "psi_mem_full_s": 124.09,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.54,
+    "user_usec": 0.22,
+    "system_usec": 0.33
+   },
+   "stat_last": {
+    "anon": 252633088,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 622592
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 24.76,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1232
+    ],
+    [
+     "0",
+     13
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu0-100ms-r2",
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-100ms",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:56:41Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.04,
+   "kill_after_s": null,
+   "ops": 937,
+   "held_end_mib": 234.2,
+   "peak_mib": 241.8,
+   "current_last_mib": 241.3,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.221973,
+    "p99": 6103.805332,
+    "max": 9591.779847,
+    "p99_last_tenth": 9591.779847
+   },
+   "sum_op_s": 115.51,
+   "unfinished_op_s": 9.5,
+   "ops_with_high_events": 45,
+   "high_events_per_17": 1170.7,
+   "events": {
+    "high": 20940,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.26,
+   "psi_mem_full_s": 124.26,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.55,
+    "user_usec": 0.24,
+    "system_usec": 0.31
+   },
+   "stat_last": {
+    "anon": 252362752,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 618496
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 30.83,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1232
+    ],
+    [
+     "0",
+     15
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu0-100ms-r3",
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-100ms",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:09:09Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.06,
+   "kill_after_s": null,
+   "ops": 937,
+   "held_end_mib": 234.2,
+   "peak_mib": 241.7,
+   "current_last_mib": 241.3,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.240001,
+    "p99": 6143.825265,
+    "max": 9599.800285,
+    "p99_last_tenth": 9599.800285
+   },
+   "sum_op_s": 115.73,
+   "unfinished_op_s": 9.2,
+   "ops_with_high_events": 45,
+   "high_events_per_17": 1169.7,
+   "events": {
+    "high": 20889,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.21,
+   "psi_mem_full_s": 124.21,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.61,
+    "user_usec": 0.27,
+    "system_usec": 0.33
+   },
+   "stat_last": {
+    "anon": 252370944,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 614400
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 30.82,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1233
+    ],
+    [
+     "0",
+     14
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu0-1s-r1",
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-1s",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:49:03Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.15,
+   "kill_after_s": null,
+   "ops": 967,
+   "held_end_mib": 241.8,
+   "peak_mib": 249.1,
+   "current_last_mib": 248.8,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.254039,
+    "p99": 1879.85529,
+    "max": 26594.839289,
+    "p99_last_tenth": 26594.839289
+   },
+   "sum_op_s": 118.1,
+   "unfinished_op_s": 6.8,
+   "ops_with_high_events": 75,
+   "high_events_per_17": 388.8,
+   "events": {
+    "high": 6899,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.65,
+   "psi_mem_full_s": 124.65,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.47,
+    "user_usec": 0.19,
+    "system_usec": 0.28
+   },
+   "stat_last": {
+    "anon": 260239360,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 638976
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 40.23,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     125
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu0-1s-r2",
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-1s",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:00:53Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 121.09,
+   "kill_after_s": null,
+   "ops": 971,
+   "held_end_mib": 242.8,
+   "peak_mib": 249.9,
+   "current_last_mib": 249.7,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.232327,
+    "p99": 2967.768543,
+    "max": 24567.813041,
+    "p99_last_tenth": 24567.813041
+   },
+   "sum_op_s": 120.9,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 79,
+   "high_events_per_17": 367.7,
+   "events": {
+    "high": 6252,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 120.59,
+   "psi_mem_full_s": 120.59,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.47,
+    "user_usec": 0.21,
+    "system_usec": 0.26
+   },
+   "stat_last": {
+    "anon": 261169152,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 638976
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 31.09,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     119
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu0-1s-r3",
+   "batch": "diag",
+   "config": "diag-over-high-cpu0-1s",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:13:17Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.15,
+   "kill_after_s": null,
+   "ops": 972,
+   "held_end_mib": 243.0,
+   "peak_mib": 250.4,
+   "current_last_mib": 249.8,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.230622,
+    "p99": 3999.930794,
+    "max": 21879.863965,
+    "p99_last_tenth": 21879.863965
+   },
+   "sum_op_s": 108.9,
+   "unfinished_op_s": 16.2,
+   "ops_with_high_events": 80,
+   "high_events_per_17": 335.8,
+   "events": {
+    "high": 6286,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.66,
+   "psi_mem_full_s": 124.66,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.47,
+    "user_usec": 0.2,
+    "system_usec": 0.27
+   },
+   "stat_last": {
+    "anon": 261304320,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 634880
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 48.36,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     125
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu2-100ms-r1",
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-100ms",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:46:57Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.03,
+   "kill_after_s": null,
+   "ops": 973,
+   "held_end_mib": 243.2,
+   "peak_mib": 250.7,
+   "current_last_mib": 250.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.238259,
+    "p99": 3199.771311,
+    "max": 12303.769294,
+    "p99_last_tenth": 12303.769294
+   },
+   "sum_op_s": 107.33,
+   "unfinished_op_s": 17.5,
+   "ops_with_high_events": 81,
+   "high_events_per_17": 549.8,
+   "events": {
+    "high": 9958,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.28,
+   "psi_mem_full_s": 124.28,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.49,
+    "user_usec": 0.19,
+    "system_usec": 0.29
+   },
+   "stat_last": {
+    "anon": 261632000,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 634880
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 138.14,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1242
+    ],
+    [
+     "0",
+     5
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu2-100ms-r2",
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-100ms",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:58:47Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.11,
+   "kill_after_s": null,
+   "ops": 972,
+   "held_end_mib": 243.0,
+   "peak_mib": 250.5,
+   "current_last_mib": 250.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.300895,
+    "p99": 4487.951476,
+    "max": 14015.651403,
+    "p99_last_tenth": 14015.651403
+   },
+   "sum_op_s": 100.06,
+   "unfinished_op_s": 24.9,
+   "ops_with_high_events": 80,
+   "high_events_per_17": 468.8,
+   "events": {
+    "high": 8853,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.17,
+   "psi_mem_full_s": 124.17,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.63,
+    "user_usec": 0.28,
+    "system_usec": 0.35
+   },
+   "stat_last": {
+    "anon": 261558272,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 634880
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 107.09,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1241
+    ],
+    [
+     "0",
+     6
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu2-100ms-r3",
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-100ms",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:11:15Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 120.59,
+   "kill_after_s": null,
+   "ops": 979,
+   "held_end_mib": 244.8,
+   "peak_mib": 252.0,
+   "current_last_mib": 252.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.20756,
+    "p99": 1199.954646,
+    "max": 36799.870245,
+    "p99_last_tenth": 36799.870245
+   },
+   "sum_op_s": 120.42,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 87,
+   "high_events_per_17": 276.8,
+   "events": {
+    "high": 4705,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 119.87,
+   "psi_mem_full_s": 119.87,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.43,
+    "user_usec": 0.18,
+    "system_usec": 0.26
+   },
+   "stat_last": {
+    "anon": 263344128,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 638976
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 19.55,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     1198
+    ],
+    [
+     "0",
+     4
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu2-1s-r1",
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-1s",
+   "rep": 1,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T12:51:09Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.16,
+   "kill_after_s": null,
+   "ops": 946,
+   "held_end_mib": 236.5,
+   "peak_mib": 244.0,
+   "current_last_mib": 243.5,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.21492,
+    "p99": 4775.761693,
+    "max": 13647.875644,
+    "p99_last_tenth": 13647.875644
+   },
+   "sum_op_s": 112.48,
+   "unfinished_op_s": 12.6,
+   "ops_with_high_events": 53,
+   "high_events_per_17": 1226.7,
+   "events": {
+    "high": 21823,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.64,
+   "psi_mem_full_s": 124.64,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.58,
+    "user_usec": 0.23,
+    "system_usec": 0.34
+   },
+   "stat_last": {
+    "anon": 254726144,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 622592
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 80.19,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     125
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu2-1s-r2",
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-1s",
+   "rep": 2,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:02:56Z",
+   "outcome": "cap",
+   "hard_killed": true,
+   "wall_s": 125.16,
+   "kill_after_s": null,
+   "ops": 972,
+   "held_end_mib": 243.0,
+   "peak_mib": 250.5,
+   "current_last_mib": 250.0,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.216007,
+    "p99": 1999.785459,
+    "max": 20007.880297,
+    "p99_last_tenth": 20007.880297
+   },
+   "sum_op_s": 97.15,
+   "unfinished_op_s": 27.7,
+   "ops_with_high_events": 80,
+   "high_events_per_17": 941.8,
+   "events": {
+    "high": 16979,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 124.64,
+   "psi_mem_full_s": 124.64,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.57,
+    "user_usec": 0.2,
+    "system_usec": 0.37
+   },
+   "stat_last": {
+    "anon": 261545984,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 634880
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 71.66,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     124
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ],
+    [
+     "0",
+     1
+    ]
+   ],
+   "end_reasons": [],
+   "high_end": "241590272"
+  },
+  {
+   "run": "diag-over-high-cpu2-1s-r3",
+   "batch": "diag",
+   "config": "diag-over-high-cpu2-1s",
+   "rep": 3,
+   "kind": "anon",
+   "limits": "high",
+   "code": "warm",
+   "procs": 1,
+   "io_cap": true,
+   "extra": [
+    "--cpu",
+    "2"
+   ],
+   "stamp": "639c851733d67eac",
+   "utc_start": "2026-11-05T13:15:23Z",
+   "outcome": "cap",
+   "hard_killed": false,
+   "wall_s": 120.92,
+   "kill_after_s": null,
+   "ops": 982,
+   "held_end_mib": 245.5,
+   "peak_mib": 252.6,
+   "current_last_mib": 252.4,
+   "churn_ops": 0,
+   "churn_p50_ms": null,
+   "lat_ms": {
+    "p50": 0.225526,
+    "p99": 2103.816091,
+    "max": 27122.564717,
+    "p99_last_tenth": 27122.564717
+   },
+   "sum_op_s": 120.74,
+   "unfinished_op_s": 0.1,
+   "ops_with_high_events": 90,
+   "high_events_per_17": 356.8,
+   "events": {
+    "high": 6065,
+    "low": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_group_kill": 0,
+    "oom_kill": 0
+   },
+   "psi_mem_some_s": 120.4,
+   "psi_mem_full_s": 120.4,
+   "psi_mem_some_avg10_max": 99.0,
+   "psi_io_some_s": 0.0,
+   "cpu_s": {
+    "usage_usec": 0.48,
+    "user_usec": 0.19,
+    "system_usec": 0.3
+   },
+   "stat_last": {
+    "anon": 263974912,
+    "file": 0,
+    "shmem": 0,
+    "kernel": 643072
+   },
+   "pgsteal": 0,
+   "refault_file": 0,
+   "majflt": 0,
+   "disk_read_mb": 0.0,
+   "growth_last_60s_kib_s": 72.27,
+   "wchan_top": [
+    [
+     "mem_cgroup_handle_over_high",
+     120
+    ],
+    [
+     "__wait_rcu_gp",
+     1
+    ]
+   ],
+   "end_reasons": [
+    "time"
+   ],
+   "high_end": "241590272"
+  }
+ ]
+}

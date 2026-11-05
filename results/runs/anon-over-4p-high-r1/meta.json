@@ -1,0 +1,76 @@
+{
+ "argv0": [
+  "sh",
+  "-c",
+  "echo $$ > \"$1\" && shift && exec \"$@\"",
+  "sh",
+  "/sys/fs/cgroup/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-4p-high-r1/cgroup.procs",
+  "/usr/bin/python3.12",
+  "-I",
+  "/root/dd-memory-high/scripts/lib/workload.py",
+  "--kind",
+  "anon",
+  "--target-mib",
+  "80",
+  "--churn-ops",
+  "50",
+  "--max-seconds",
+  "150.0",
+  "--seed",
+  "1000",
+  "--cgroup",
+  "/sys/fs/cgroup/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-4p-high-r1",
+  "--proc",
+  "0"
+ ],
+ "cgroup": "/sys/fs/cgroup/ddmemhigh.slice/ddmemhigh-20261105T112606Z.scope/anon-over-4p-high-r1",
+ "churn_ops": 200,
+ "code": "warm",
+ "extra_args": [],
+ "host": {
+  "loadavg": "4.10 2.57 1.82 2/460 146185",
+  "mem_available": 5921062912,
+  "pressure_memory": {
+   "full": {
+    "avg10": 18.47,
+    "avg300": 48.17,
+    "avg60": 24.74,
+    "total": 721933248.0
+   },
+   "some": {
+    "avg10": 33.15,
+    "avg300": 55.95,
+    "avg60": 38.0,
+    "total": 794574414.0
+   }
+  },
+  "uname": "Linux testhost 6.8.0-147-generic #147-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep 24 11:33:16 UTC 2026 x86_64"
+ },
+ "io_cap": true,
+ "kind": "anon",
+ "limits": "high",
+ "max_seconds": 150.0,
+ "name": "anon-over-4p-high-r1",
+ "procs": 4,
+ "readback": {
+  "io.max": "253:0 rbps=104857600 wbps=104857600 riops=max wiops=max",
+  "memory.high": "241590272",
+  "memory.low": "0",
+  "memory.max": "max",
+  "memory.min": "0",
+  "memory.oom.group": "0",
+  "memory.swap.max": "max"
+ },
+ "rep": 1,
+ "scope_events_before": {
+  "high": 138951,
+  "low": 0,
+  "max": 35,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "0ff572e752011cb4",
+ "target_mib": 320,
+ "utc_start": "2026-11-05T11:37:41Z"
+}

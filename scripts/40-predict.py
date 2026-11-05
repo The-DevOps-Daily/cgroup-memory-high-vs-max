@@ -70,7 +70,7 @@ def main():
     base = st.median(r["lat_ms"]["p50"] for r in summ["runs"] if r["config"] == "anon-fit-none")
     out = {"baseline_op_ms": base, "per_sleep": {}, "clamp": {}, "long": {}, "psi": {}, "procs": {},
            "sleeps_by_penalty": {}}
-    by_pen = {}
+    by_pen, time50 = {}, {}
 
     # 1. per-sleep time against the formula
     for (batch, run), r in sorted(runs.items()):
@@ -101,6 +101,10 @@ def main():
             for lo, hi in BUCKETS:
                 if lo <= pen < hi and "--populate" not in (r["extra"] or []):
                     by_pen.setdefault(group, {}).setdefault(f"{lo}-{hi} ms", []).append(sleeps)
+                    if lo >= 50:
+                        t = time50.setdefault(group, [0.0, 0.0])
+                        t[0] += o["op"] / 1e9
+                        t[1] += o["op"] / 1e9 if sleeps >= 32 else 0.0
         out["per_sleep"][run] = {
             "ops_checked": len(ratios), "ops_with_partial_reclaim_rounds": mixed,
             "ops_predicted_no_sleep": nosleep,
@@ -109,6 +113,15 @@ def main():
             "ratio_p50_with_half_timer_step": {k: pct(v, 0.5) for k, v in stepped.items()},
         }
 
+    out["sleeps_50ms_or_more"] = {}
+    for g, buckets in by_pen.items():
+        v = [x for k, xs in buckets.items() if int(k.split("-")[0]) >= 50 for x in xs]
+        if v:
+            t = time50.get(g, [0.0, 0.0])
+            out["sleeps_50ms_or_more"][g] = {"ops": len(v), "sleeps_p50": pct(v, 0.5),
+                                             "share_64_or_more": round(sum(1 for x in v if x >= 64) / len(v), 3),
+                                             "op_seconds": round(t[0], 1),
+                                             "time_share_32_or_more": round(t[1] / t[0], 3) if t[0] else None}
     for g, buckets in by_pen.items():
         out["sleeps_by_penalty"][g] = {
             k: {"ops": len(v), "sleeps_p10": pct(v, 0.1), "sleeps_p50": pct(v, 0.5),
@@ -213,6 +226,13 @@ def main():
             v = buckets.get(f"{lo}-{hi} ms")
             if v:
                 L.append(f"| {g} | {lo} to {hi} ms | {v['ops']} | {v['sleeps_p10']} | {v['sleeps_p50']} | {100 * v['share_64_or_more']:.0f}% |")
+    L += ["", "## 1c. Sleeps per op when the formula's sleep is 50 ms or more, per group", "",
+          "Time share: of the seconds these ops took, the share spent in ops that slept 32 or more times.", "",
+          "| group | ops | sleeps p50 | ops with 64 or more | op seconds | time share, 32 or more sleeps |",
+          "| --- | --- | --- | --- | --- | --- |"]
+    for g, v in sorted(out["sleeps_50ms_or_more"].items()):
+        L.append(f"| {g} | {v['ops']} | {v['sleeps_p50']} | {100 * v['share_64_or_more']:.0f}% | {v['op_seconds']} | "
+                 f"{100 * v['time_share_32_or_more']:.0f}% |")
     L += ["", "## 2. The 2 s cap (`MEMCG_MAX_HIGH_DELAY_JIFFIES`)", "",
           "| run | memory.high set at MiB | over high | formula without cap, ms | ops | sleeps per op | per sleep p50 ms | min | max |",
           "| --- " * 9 + "|"]

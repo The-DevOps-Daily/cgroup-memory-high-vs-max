@@ -1,0 +1,120 @@
+{
+ "cpu": {
+  "core_sched.force_idle_usec": 0,
+  "system_usec": 289532,
+  "usage_usec": 433392,
+  "user_usec": 143859
+ },
+ "current": 261611520,
+ "events": {
+  "high": 0,
+  "low": 0,
+  "max": 335,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "events_local": {
+  "high": 0,
+  "low": 0,
+  "max": 335,
+  "oom": 0,
+  "oom_group_kill": 0,
+  "oom_kill": 0
+ },
+ "hard_killed": false,
+ "host_pressure_memory_after": {
+  "full": {
+   "avg10": 10.78,
+   "avg300": 43.63,
+   "avg60": 31.34,
+   "total": 824344436.0
+  },
+  "some": {
+   "avg10": 10.92,
+   "avg300": 50.4,
+   "avg60": 33.89,
+   "total": 914539524.0
+  }
+ },
+ "io": {
+  "253:0": {
+   "dbytes": 0,
+   "dios": 0,
+   "rbytes": 348651520,
+   "rios": 1330,
+   "wbytes": 0,
+   "wios": 0
+  }
+ },
+ "io_pressure": {
+  "full": {
+   "avg10": 14.67,
+   "avg300": 0.55,
+   "avg60": 2.64,
+   "total": 2901082.0
+  },
+  "some": {
+   "avg10": 14.67,
+   "avg300": 0.55,
+   "avg60": 2.64,
+   "total": 2901082.0
+  }
+ },
+ "kernel_log": [],
+ "peak": 268435456,
+ "pressure": {
+  "full": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 18129.0
+  },
+  "some": {
+   "avg10": 0.0,
+   "avg300": 0.0,
+   "avg60": 0.0,
+   "total": 18129.0
+  }
+ },
+ "returncodes": [
+  0
+ ],
+ "scope_events_after": {
+  "high": 197347,
+  "low": 0,
+  "max": 99868,
+  "oom": 1,
+  "oom_group_kill": 0,
+  "oom_kill": 1
+ },
+ "stamp": "0ff572e752011cb4",
+ "stat": {
+  "active_file": 0,
+  "anon": 0,
+  "file": 260833280,
+  "file_dirty": 0,
+  "file_mapped": 0,
+  "file_writeback": 0,
+  "inactive_file": 260833280,
+  "kernel": 778240,
+  "kernel_stack": 0,
+  "pagetables": 0,
+  "pgfault": 1807,
+  "pgmajfault": 0,
+  "pgscan": 21440,
+  "pgscan_direct": 21440,
+  "pgsteal": 21440,
+  "pgsteal_direct": 21440,
+  "shmem": 0,
+  "slab": 771848,
+  "sock": 0,
+  "workingset_refault_anon": 0,
+  "workingset_refault_file": 3136
+ },
+ "stderr": [
+  ""
+ ],
+ "utc_end": "2026-11-05T11:41:43Z",
+ "wall_ns": 3390667210
+}

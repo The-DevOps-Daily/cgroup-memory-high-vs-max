@@ -5,6 +5,6 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 name="${1:?usage: $0 <hostname>}"
-grep -rlF -- "$name" results | while read -r f; do sed -i "s/$name/testhost/g" "$f"; done
-left=$(grep -rlF -- "$name" results | wc -l)
+{ grep -rlF -- "$name" results || true; } | while read -r f; do sed -i "s/$name/testhost/g" "$f"; done
+left=$(grep -rlF -- "$name" results | wc -l || true)
 echo "files still containing the name: $left"

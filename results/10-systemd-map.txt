@@ -1,0 +1,33 @@
+# 2026-11-05T11:03:19Z systemd 255 (255.4-1ubuntu8.18)
+$ systemd-run --scope --slice=ddmemhigh.slice -p MemoryMin=16M -p MemoryLow=64M -p MemoryHigh=241590272 -p MemoryMax=256M sh -c '<print memory files>'
+  cgroup /sys/fs/cgroup/ddmemhigh.slice/run-rffdb625e2eaf49aca60b5dbefb1dfc75.scope
+  memory.min 16777216
+  memory.low 67108864
+  memory.high 241590272
+  memory.max 268435456
+  memory.swap.max max
+  memory.oom.group 0
+$ systemd-run --scope --slice=ddmemhigh.slice -p MemoryHigh=241590272 sh -c '<print memory files>'
+  cgroup /sys/fs/cgroup/ddmemhigh.slice/run-r1af1f75d3c544dc28180ce27b04f8e4f.scope
+  memory.min 0
+  memory.low 0
+  memory.high 241590272
+  memory.max max
+  memory.swap.max max
+  memory.oom.group 0
+$ systemd-run --scope --slice=ddmemhigh.slice -p MemoryMax=256M sh -c '<print memory files>'
+  cgroup /sys/fs/cgroup/ddmemhigh.slice/run-r34dc13e5d58643b08a012f6d0b7f0798.scope
+  memory.min 0
+  memory.low 0
+  memory.high max
+  memory.max 268435456
+  memory.swap.max max
+  memory.oom.group 0
+$ systemd-run --scope --slice=ddmemhigh.slice -p MemoryHigh=3% -p MemoryMax=infinity sh -c '<print memory files>'
+  cgroup /sys/fs/cgroup/ddmemhigh.slice/run-rc6aaa95117e34cb3ad879b237186dd6c.scope
+  memory.min 0
+  memory.low 0
+  memory.high 249806848
+  memory.max max
+  memory.swap.max max
+  memory.oom.group 0
