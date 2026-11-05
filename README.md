@@ -14,7 +14,7 @@ scripts/01-source-check.sh && scripts/30-summarize.py && scripts/40-predict.py &
 
 The same allocating workload runs under no limit, `memory.max` only, `memory.high` only and both, and the repo records what the kernel does: per-operation latency, `memory.current`, `memory.events`, PSI, reclaim counters and disk reads. The question is the one in the systemd and kernel docs: `memory.high` throttles, `memory.max` kills. How much does it throttle, and when does the kill come?
 
-It needs a cgroup v2 Linux host where you can create cgroups: root, or a subtree delegated to your user. The scripts never set a limit above 1 GiB, cap each run's disk I/O at 100 MiB/s (one variant excepted), and work only inside a transient scope in `ddmemhigh.slice`. The claim and what would prove it wrong are in [CLAIM.md](CLAIM.md), written before the first run. A second part was added after the smoke runs, before the main matrix, and a third after the main matrix, before the clamp and diagnostic batches.
+It needs a cgroup v2 Linux host where you can create cgroups: root, or a subtree delegated to your user. The scripts never set a limit above 1 GiB, cap each run's disk I/O at 100 MiB/s (one variant excepted), and work only inside a transient scope in `ddmemhigh.slice`. The claim and what would prove it wrong are in [CLAIM.md](CLAIM.md), written before the first run. A second part was added after the smoke runs, before the main matrix, and a third after all runs, which says that the clamp and diagnostic batches had no predictions written in advance.
 
 ## What each script does
 

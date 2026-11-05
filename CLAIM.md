@@ -109,12 +109,13 @@ New predictions:
 | `anon-over-max-owncode-fastdisk` | No OOM kill within 20 s |
 | PSI | Memory `some` under-counts the own-code thrash (most of the time goes to disk reads) |
 
-## Added after the main matrix (2026-11-05, 13:40 UTC)
+## Added after all runs (2026-11-05, 13:40 UTC)
 
 A review after the main matrix found that `matrix.py` pins the driver to CPU 0
 before it starts the workload, so every workload in `results/runs` shared CPU 0
-with the 100 ms sampler. The clamp batch (`results/clamp`) and a diagnostic
-batch (`results/diag`: workload on CPU 0 or CPU 2, sampler every 100 ms or 1 s)
-ran after that, from commit 8b9a71b. We did not write predictions for the
+with the 100 ms sampler. Two batches ran after the main matrix, from commit
+8b9a71b: the clamp batch (`results/clamp`), which tests the 2 s cap from the
+first table above, and a diagnostic batch (`results/diag`: workload on CPU 0
+or CPU 2, sampler every 100 ms or 1 s). We wrote no predictions for the
 diagnostic batch before it ran, so treat it as exploration, not as a test of a
 prediction.
